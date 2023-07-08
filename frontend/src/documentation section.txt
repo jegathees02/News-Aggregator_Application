@@ -1,4 +1,4 @@
 Jegathees
 npm install react-router-dom
 npm install -D tailwindcss
-sdg
+//configuration for tailwind is applied
