@@ -20,8 +20,9 @@
 .login-inputs{
     float: right;
     width: 50%;
-}
-.login-inputs{
     padding: 3%;
     border: 1px solid white;
+}
+.login-text {
+    
 }
