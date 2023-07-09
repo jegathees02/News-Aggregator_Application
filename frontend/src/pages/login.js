@@ -1,7 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../components/logo";
 import "../components/css/login.css";
+import { Link } from "react-router-dom";
 function Login() {
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+    const [emailError,setEmailError] = useState("");
+    const [passwordError,setPasswordError] = useState("");
+    const[error,setError] = useState("");
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        validate();
+        // let isValid = true;
+        // if(!email) {
+        //     setEmailError("Email is required");
+        //     isValid =false;
+        // }
+        // else {
+        //     setEmailError("");
+        // }
+        // if(!password) {
+        //     isValid = false;
+        //     setPasswordError("Password is required");
+        // }
+        // else {
+        //     setPasswordError("");
+        // }
+    }
+    const validate = () => {
+        let isValid = true;
+        if(email == "") {
+            setEmailError("*Email is required");
+            isValid =false;
+        }
+        else {
+            setEmailError("");
+        }
+        if(password == "") {
+            isValid = false;
+            setPasswordError("*Password is required");
+        }
+        else {
+            setPasswordError("");
+        }
+        if(isValid) {
+            setEmail("");
+            setPassword("");
+        }
+    }
     return(
         <>
         <div className="login-main container">
@@ -9,7 +55,7 @@ function Login() {
                 <Logo/>
             </div>
             <div className="login-content row">
-                 <div className="login-img col-md-6 col-sm-12 col-lg-6"  >
+                 <div className="login-img col-md-12 col-sm-12 col-lg-12"  >
                     <div>
                         <img className="login-img-main" src="https://c1.wallpaperflare.com/preview/415/175/739/magnifier-newspaper-history-glass.jpg" alt="img" />
                     </div>
@@ -20,22 +66,27 @@ function Login() {
                                 <h2 className="text-slate-50 text-4xl font-bold  text-center"><span className="text-red-500">i</span>News<span className="text-red-500">.</span> &nbsp; Login</h2>
                             </div>
                             <div className="login-input-form">
-                                <form className="form-group">
+                                <form className="form-group" onSubmit={handleSubmit}>
                                     <label className="text-slate-100 text-3xl login-input">Username/Email:
-                                        <input className="input-box text-slate-950" type="text" placeholder="Email/Username" />
+                                        <input className="input-box text-slate-950" type="text"
+                                         id = "email" placeholder="Email/Username"
+                                        onChange={(e) => setEmail(e.target.value)} />
+                                        {emailError && (<div className="login-error text-red-500 text-xl">{emailError}</div>)}
                                         </label>
                                     <label className="text-slate-100 text-3xl login-input">Password:
-                                        <input className="input-box text-slate-950" type="password" placeholder="Password"></input>
+                                        <input className="input-box text-slate-950" type="password" id = "password" placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)}></input>
+                                        {passwordError && (<div className="login-error text-red-500 text-xl">{passwordError}</div>)}
                                         </label>
                                         <div className="login-button">
                                         <button className="login-clear-button text-slate-100">Clear</button>
-                                        <button className="login-login-button  text-slate-100">Login</button>
+                                        <button className="login-login-button  text-slate-100" type="submit" >Login</button>
                                         </div>
                                         
                                     <label className="text-slate-100 text-3xl login-input">
                                         New User??
                                         {/* <a href="/signup" >SignUp</a> */}
-                                        <button className="login-signup-button text-slate-100">SignUp</button>
+                                        <button className="login-signup-button text-slate-100"><Link to ="/signup">SignUp</Link></button>
                                         {/* <Link to "/signup">Sign Up </Link> */}
                                     </label>
                                 </form>
