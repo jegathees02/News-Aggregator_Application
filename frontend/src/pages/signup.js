@@ -10,6 +10,7 @@ import ".././assets/css/signup.css";
 function Signup() {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
+    const [mobile,setMobile] = useState('');
     const [age,setAge] = useState('');
     const [states,setStates] = useState('');
     const [district,setDistrict] = useState('');
@@ -23,6 +24,7 @@ function Signup() {
 
     const [nameError,setNameError] = useState('');
     const [emailError,setEmailError] = useState('');
+    const [mobileError,setMobileError] = useState('');
     const [ageError,setAgeError] = useState('');
     const [statesError,setStatesError] = useState('');
     const [districtError,setDistrictError] = useState('');
@@ -32,6 +34,22 @@ function Signup() {
     const [preference3Error,setPreference3Error] = useState('');
     const [passwordError,setPasswordError] = useState('');
     const [retype_passwordError,setRetype_passwordError] = useState('');
+
+    const handleClear = (event) => {
+        event.preventDefault();
+        setName('');
+        setEmail('');
+        setMobile('');
+        setAge('');
+        setStates('');
+        setDistrict('');
+        setCity('');
+        setPreference1('');
+        setPreference2('');
+        setPreference3('');
+        setPassword('');
+        setRetype_password('');
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -52,6 +70,9 @@ function Signup() {
         else if((strWithNum.test(name))) {
             setNameError("*Name cannot contain numbers");
         }
+        else{
+            setNameError('');
+        }
         if(email === "") {
             setEmailError("*Email is required");
             isValid = false;
@@ -60,13 +81,29 @@ function Signup() {
             setEmailError("Invalid Email");
             isValid = false;
         }
+        else{
+            setEmailError('');
+        }
+        if(mobile == 0 || mobile < 6000000000 || mobile > 9999999999) {
+            setMobileError("*Invalid Mobile Number");
+            isValid = false;
+        }
+        else{
+            setMobileError('');
+        }
         if(age === 0) {
             setAgeError("*Age cannot be zero");
             isValid = false;
         }
+        else if(age === '' ){
+            setAgeError("*Age is required");
+        }
         else if(age < 0 || age > 100) {
             setAgeError("*Age is invalid");
             isValid = false;
+        }
+        else{
+            setAgeError('');
         }
         if(states === "") {
             setStatesError("*State is required");
@@ -75,12 +112,18 @@ function Signup() {
         else if(!(isValidStr = strWithNum.test(states))) {
             setStatesError("*State cannot contain numbers");
         }
+        else{
+            setStatesError('');
+        }
         if(district === "") {
             setDistrictError("*District is required");
             isValid = false;
         }
         else if(!(isValidStr = strWithNum.test(district))) {
             setDistrictError("*District cannot contain numbers");
+        }
+        else{
+            setDistrictError('');
         }
         if(city === "") {
             setCityError("*City is required");
@@ -89,6 +132,9 @@ function Signup() {
         else if(!(isValidStr = strWithNum.test(city))) {
             setCityError("*City cannot contain numbers");
         }
+        else{
+            setCityError('');
+        }
         if(preference1 === "") {
             setPreference1Error("*Preference is required");
             isValid = false;
@@ -96,11 +142,20 @@ function Signup() {
         else if(!(isValidStr = strWithNum.test(preference1))) {
             setPreference1Error("*Preference cannot contain numbers");
         }
+        else{
+            setPreference1Error('');
+        }
         if((strWithNum.test(preference2))) {
             setPreference2Error("*Preference cannot contain numbers");
         }
+        else{
+            setPreference2Error('');
+        }
         if((strWithNum.test(preference2))) {
             setPreference3Error("*Preference cannot contain numbers");
+        }
+        else{
+            setPreference3Error('');
         }
         if(password === "") {
             setPasswordError("*Password is required");
@@ -110,12 +165,18 @@ function Signup() {
             setPasswordError("*Password length must be greater than 8");
             isValid = false;
         }
+        else{
+            setPasswordError('');
+        }
         if(retype_password === "") {
             setRetype_passwordError("*Re-type password");
             isValid = false;
         }
         else if(password !== retype_password) {
             setRetype_passwordError("*Password doesn't match");
+        }
+        else{
+            setRetype_passwordError('');
         }
 
         if(isValid) {
@@ -143,65 +204,81 @@ function Signup() {
                         <form className="signup-form-tag" onSubmit={handleSubmit}>
                             <div className="signup-form-main-separator">
                                 <div className="signup-form-input-left">
-
-                                    <label className="text-slate-100 text-3xl login-input">Name:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="Name" value={name}
-                                        onChange={(e) => setName(e.target.value)} />
-                                        {nameError && (<div className="login-error text-red-500 text-xl">{nameError}</div>)}
-                                    </label>
-                                    <label className="text-slate-100 text-3xl login-input">Age:     
-                                        <input className="input-box text-slate-950"  type="Number" placeholder="Age" value={age} 
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Name:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Name" value={name}
+                                        onChange={(e) => setName(e.target.value)} /> 
+                                        {nameError && (<div className="signup-error text-red-500 text-xl">{nameError}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Age:</label> 
+                                    <input className="signup-input-box text-slate-950"  type="Number" placeholder="Age" value={age} 
                                         onChange={(e) => setAge(e.target.value)}/>
-                                        {ageError && (<div className="login-error text-red-500 text-xl">{ageError}</div>)}
-                                    </label>                            <label className="text-slate-100 text-3xl login-input" >State:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="State" value={states} 
-                                        onChange={(e) => setStates(e.target.value)}/>
-                                        {statesError && (<div className="login-error text-red-500 text-xl">{statesError}</div>)}
-                                    </label>
-                                    <label className="text-slate-100 text-3xl login-input">District:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="District" value={district} 
+                                        {ageError && (<div className="signup-error text-red-500 text-xl">{ageError}</div>)} 
+                                    </div>        
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input" >State:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="State" value={states} 
+                                        onChange={(e) => setStates(e.target.value)}/> 
+                                        {statesError && (<div className="signup-error text-red-500 text-xl">{statesError}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">District:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="District" value={district} 
                                         onChange={(e) => setDistrict(e.target.value)}/>
-                                        {districtError && (<div className="login-error text-red-500 text-xl">{districtError}</div>)}
-                                    </label>
-                                    <label className="text-slate-100 text-3xl login-input">City:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="City" value={city} 
+                                        {districtError && (<div className="signup-error text-red-500 text-xl">{districtError}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">City:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="City" value={city} 
                                         onChange={(e) => setCity(e.target.value)}/>
-                                        {cityError && (<div className="login-error text-red-500 text-xl">{cityError}</div>)}
-                                    </label>
-                                    <label className="text-slate-100 text-3xl login-input">Set Password:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="Password" value={password} 
+                                        {cityError && (<div className="signup-error text-red-500 text-xl">{cityError}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Set Password:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Password" value={password} 
                                         onChange={(e) => setPassword(e.target.value)}/>
-                                        {passwordError && (<div className="login-error text-red-500 text-xl">{passwordError}</div>)}
-                                    </label>
+                                        {passwordError && (<div className="signup-error text-red-500 text-xl">{passwordError}</div>)}
+                                    </div>
 
                                 </div>
                                 <div className="signup-form-input-right">
-
-                                    <label className="text-slate-100 text-3xl login-input">Email Id:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="Email Id" value={email}
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Email Id:</label> 
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Email Id" value={email}
                                         onChange={(e) => setEmail(e.target.value)} />
-                                        {emailError && (<div className="login-error text-red-500 text-xl">{emailError}</div>)}
-                                    </label>  
-                                    <label className="text-slate-100 text-3xl login-input">Preference 1:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="Preference-1" value={preference1} 
+                                        {emailError && (<div className="signup-error text-red-500 text-xl">{emailError}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Mobile Number:</label> 
+                                        <input className="signup-input-box text-slate-950"  type="number" placeholder="Mobile Number" value={mobile}
+                                        onChange={(e) => setMobile(e.target.value)} />
+                                        {mobileError && (<div className="signup-error text-red-500 text-xl">{mobileError}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Preference 1:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Preference-1" value={preference1} 
                                         onChange={(e) => setPreference1(e.target.value)}/>
-                                        {preference1Error && (<div className="login-error text-red-500 text-xl">{preference1Error}</div>)}
-                                    </label>
-                                    <label className="text-slate-100 text-3xl login-input">Preference 2:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="Preference-2" value={preference2} 
+                                        {preference1Error && (<div className="signup-error text-red-500 text-xl">{preference1Error}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Preference 2:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Preference-2" value={preference2} 
                                         onChange={(e) => setPreference2(e.target.value)}/>
-                                        {preference2Error && (<div className="login-error text-red-500 text-xl">{preference2Error}</div>)}
-                                    </label>
-                                    <label className="text-slate-100 text-3xl login-input">Preference 3:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="Preference-3" value={preference3} 
+                                        {preference2Error && (<div className="signup-error text-red-500 text-xl">{preference2Error}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Preference 3:</label>  
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Preference-3" value={preference3} 
                                         onChange={(e) => setPreference3(e.target.value)}/>
-                                        {preference3Error && (<div className="login-error text-red-500 text-xl">{preference3Error}</div>)}
-                                    </label>  
-                                    <label className="text-slate-100 text-3xl login-input">Re-type Password:
-                                        <input className="input-box text-slate-950"  type="text" placeholder="Re-type Password" value={retype_password} 
+                                        {preference3Error && (<div className="signup-error text-red-500 text-xl">{preference3Error}</div>)}
+                                    </div>
+                                    <div className="age">
+                                    <label className="text-slate-100 text-3xl login-input">Re-type Password:</label>
+                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Re-type Password" value={retype_password} 
                                         onChange={(e) => setRetype_password(e.target.value)}/>
-                                        {retype_passwordError && (<div className="login-error text-red-500 text-xl">{retype_passwordError}</div>)}
-                                    </label>
+                                        {retype_passwordError && (<div className="signup-error text-red-500 text-xl">{retype_passwordError}</div>)}
+                                    </div>
 
                                 </div>
                             </div>
@@ -212,12 +289,19 @@ function Signup() {
                             
                             
                             
-                            <button className="login-login-button text-slate-100" type="submit" onClick={handleSubmit}><Link to="/signup">SignUp</Link>
-</button>
+
                             {/* <button className="login-login-button text-slate-100" type="submit" onSubmit={handleSubmit}><Link to ="/signup">SignUp</Link></button> */}
                         </form>
                     </div>
                 </div>
+            </div>
+            <div className="row">
+            <div className="row signup-clear-button">
+            <button className="login-clear-button text-slate-100"  onClick={handleClear}>CLEAR</button>
+            </div>
+            <div className="row signup-signup-button">
+            <button className="login-login-button text-slate-100" type="submit" onClick={handleSubmit}><Link to="/signup">SIGNUP</Link></button>
+            </div>
             </div>
 
         </div>
