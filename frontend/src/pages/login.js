@@ -7,7 +7,12 @@ function Login() {
     const [password,setPassword] = useState("");
     const [emailError,setEmailError] = useState("");
     const [passwordError,setPasswordError] = useState("");
-    const[error,setError] = useState("");
+    // const[error,setError] = useState("");
+    const handleClear = (event) => {
+        event.preventDefault();
+        setEmail("");
+        setPassword("");
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         validate();
@@ -29,14 +34,14 @@ function Login() {
     }
     const validate = () => {
         let isValid = true;
-        if(email == "") {
+        if(email === "") {
             setEmailError("*Email is required");
             isValid =false;
         }
         else {
             setEmailError("");
         }
-        if(password == "") {
+        if(password === "") {
             isValid = false;
             setPasswordError("*Password is required");
         }
@@ -44,12 +49,14 @@ function Login() {
             setPasswordError("");
         }
         if(isValid) {
-            setEmail("");
-            setPassword("");
+            // setEmail("");
+            // setPassword("");
+            alert("Login Successful");
         }
     }
     return(
         <>
+        {/* <img src="https://media.istockphoto.com/id/185001125/photo/rolled-newspaper-pages.jpg?s=1024x1024&w=is&k=20&c=0A85y9An4IcyvyqqZ9eNeXAxCC-2HV9mFp9REFQkK6g=" alt="img" /> */}
         <div className="login-main container">
             <div className="login-logo-section row" >
                 <Logo/>
@@ -68,19 +75,19 @@ function Login() {
                             <div className="login-input-form">
                                 <form className="form-group" onSubmit={handleSubmit}>
                                     <label className="text-slate-100 text-3xl login-input">Username/Email:
-                                        <input className="input-box text-slate-950" type="text"
+                                        <input className="input-box text-slate-950" type="text" value={email}
                                          id = "email" placeholder="Email/Username"
                                         onChange={(e) => setEmail(e.target.value)} />
                                         {emailError && (<div className="login-error text-red-500 text-xl">{emailError}</div>)}
                                         </label>
                                     <label className="text-slate-100 text-3xl login-input">Password:
-                                        <input className="input-box text-slate-950" type="password" id = "password" placeholder="Password"
+                                        <input className="input-box text-slate-950" type="password" id = "password" placeholder="Password" value={password}
                                         onChange={(e) => setPassword(e.target.value)}></input>
                                         {passwordError && (<div className="login-error text-red-500 text-xl">{passwordError}</div>)}
                                         </label>
                                         <div className="login-button">
-                                        <button className="login-clear-button text-slate-100">Clear</button>
-                                        <button className="login-login-button  text-slate-100" type="submit" >Login</button>
+                                        <button className="login-clear-button text-slate-100" onClick={handleClear}>Clear</button>
+                                        <button className="login-login-button  text-slate-100" type="submit" onSubmit={handleSubmit}>Login</button>
                                         </div>
                                         
                                     <label className="text-slate-100 text-3xl login-input">
