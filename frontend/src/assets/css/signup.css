@@ -1,0 +1,30 @@
+.signup-input-form{
+    border: 1px solid wheat;
+}
+.signup-form-main-separator{
+    /* margin: 1px solid white; */
+    border : 1px solid wheat;
+    width: 100%;
+}
+.signup-form-input-left{
+    float: left;
+    width: 45
+    %;
+    border : 1px solid wheat;
+}
+.signup-form-input-right{
+    float:right;
+    width: 45%;
+    border : 1px solid wheat;
+}
+/* .login-input{
+    float: right;
+} */
+.login-input {
+    margin: 20px;
+}
+.login-input  ::after {
+    content: "";
+    clear : both;
+    display : table;
+}
