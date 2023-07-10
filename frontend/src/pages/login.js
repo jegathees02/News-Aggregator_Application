@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Logo from "../components/logo";
 import "../components/css/login.css";
 import { Link } from "react-router-dom";
+import BackgroundImage from "../assets/login-background-image.jpg";
 function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -16,22 +17,8 @@ function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         validate();
-        // let isValid = true;
-        // if(!email) {
-        //     setEmailError("Email is required");
-        //     isValid =false;
-        // }
-        // else {
-        //     setEmailError("");
-        // }
-        // if(!password) {
-        //     isValid = false;
-        //     setPasswordError("Password is required");
-        // }
-        // else {
-        //     setPasswordError("");
-        // }
     }
+
     const validate = () => {
         let isValid = true;
         if(email === "") {
