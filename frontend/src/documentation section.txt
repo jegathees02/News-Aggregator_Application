@@ -4,3 +4,8 @@ npm install -D tailwindcss
 //configuration for tailwind is applied
 yarn add bootstrap@5.3.0
 npm install redux react-redux
+
+//sidebar 
+npm install --save styled-components
+npm install --save react-icons
+npm install react-pro-sidebar
