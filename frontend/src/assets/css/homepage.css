@@ -9,12 +9,17 @@
 
 .home-page-main-content {
     padding: 20px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
   }
   
   .home-page-heading {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
-  h2{
+  /* h2{
     color: red;
+  } */
+
+  .home-page-actual-grid{
+    border: 1px solid white;
+    
   }

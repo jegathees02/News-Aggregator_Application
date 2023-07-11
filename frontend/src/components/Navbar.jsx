@@ -156,7 +156,7 @@ function Navbar() {
           {/* Add more links as needed */}
         </ul>
         <div className="navbar-profile">
-          <img className="navbar-profile-img" src="/path/to/profile-image.jpg" alt="Profile" />
+          <img className="navbar-profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf0chI3bLTtIar9MM7tGc4JMDw7pKD1E7g-A&usqp=CAU" alt="Profile" />
         </div>
       </div>
     </nav>

@@ -197,8 +197,58 @@ a:focus {
     color: inherit;
     margin-left: 20px;
     padding: 10px;
-    /* border: 1px solid white; */
+      --border-size: 1px;
+      --border-angle: 0turn;
+      width: 60vmin;
+      height: 50vmin;
+      background-image: conic-gradient(
+          from var(--border-angle),
+          rgb(51, 17, 17),
+          #112 50%,
+          #213
+        ),
+        conic-gradient(from var(--border-angle), transparent 20%, rgb(39, 2, 2), #f03);
+      background-size: calc(100% - (var(--border-size) * 2))
+          calc(100% - (var(--border-size) * 2)),
+        cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    
+      animation: bg-spin 1s linear infinite;
+     
+    
+      &:hover {
+        animation-play-state: paused;
+      }
   }
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+}
+    
+    @property --border-angle {
+      syntax: "<angle>";
+      inherits: true;
+      initial-value: 0turn;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 1px solid red;
+      border-top-color: orange;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    
   .navbar-links-li-ab::before , .navbar-animation {
     content: "";
     position: absolute;

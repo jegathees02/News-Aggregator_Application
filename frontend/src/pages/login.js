@@ -9,6 +9,9 @@ function Login() {
     const [password,setPassword] = useState("");
     const [emailError,setEmailError] = useState("");
     const [passwordError,setPasswordError] = useState("");
+
+    const [clicked,setClicked] = useState(false);
+
     // const[error,setError] = useState("");
     const handleClear = (event) => {
         event.preventDefault();
@@ -17,7 +20,12 @@ function Login() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
+        setClicked(true);
+        setTimeout(() => {
+            setClicked(false);},100);
+        
         validate();
+        
     }
 
     const validate = () => {
@@ -43,7 +51,7 @@ function Login() {
         }
     }
     return(
-        <>
+        <div className="login-all">
         {/* <img src="https://media.istockphoto.com/id/185001125/photo/rolled-newspaper-pages.jpg?s=1024x1024&w=is&k=20&c=0A85y9An4IcyvyqqZ9eNeXAxCC-2HV9mFp9REFQkK6g=" alt="img" /> */}
         <div className="login-main container">
             <div className="login-logo-section row" >
@@ -75,7 +83,7 @@ function Login() {
                                         </label>
                                         <div className="login-button">
                                         <button className="login-clear-button text-slate-100" onClick={handleClear}>Clear</button>
-                                        <button className="login-login-button  text-slate-100" type="submit" onSubmit={handleSubmit}>Login</button>
+                                        <button className={clicked ? "bg-blue-500 text-slate-100 login-login-button"  : "login-login-button  text-slate-100"} type="submit" onSubmit={handleSubmit}>{clicked ?"LOGIN" && <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24" />: "LOGIN"}</button>
                                         </div>
                                         
                                     <label className="text-slate-100 text-3xl login-input">
@@ -91,7 +99,7 @@ function Login() {
                 
             </div>
         </div>
-        </>
+        </div>
     )
 }
 export default Login;
