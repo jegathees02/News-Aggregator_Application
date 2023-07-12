@@ -23,3 +23,11 @@
     border: 1px solid white;
     
   }
+  .home-page-news-grid{
+    border: 1px solid red;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+  .home-news1-grid {
+    /* border: 1px solid red; */
+  }

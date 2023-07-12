@@ -133,25 +133,25 @@ function Navbar() {
       <div className="navbar-right">
         <ul className="navbar-links">
           <li className="navbar-links-li">
-            <a className="navbar-links-li-a  text-xl text-slate-100" href="#">HOME</a>
+            <a className="navbar-links-li-a  text-xl text-slate-100" href="/home">HOME</a>
           </li>
           <li className="navbar-links-li">
-            <a className="navbar-links-li-a text-xl text-slate-100" href="#">TRENDING</a>
+            <a className="navbar-links-li-a text-xl text-slate-100" href="/trending">TRENDING</a>
           </li>
           <li className="navbar-links-li">
-            <a className="navbar-links-li-a text-xl text-slate-100" href="#">POLITICS</a>
+            <a className="navbar-links-li-a text-xl text-slate-100" href="/politics">POLITICS</a>
           </li>
           <li className="navbar-links-li">
-            <a className="navbar-links-li-a text-xl text-slate-100" href="#">ENTERTAINMENT</a>
+            <a className="navbar-links-li-a text-xl text-slate-100" href="/entertainment">ENTERTAINMENT</a>
           </li>
           <li className="navbar-links-li">
-            <a className="navbar-links-li-a text-xl text-slate-100" href="#">SPORTS</a>
+            <a className="navbar-links-li-a text-xl text-slate-100" href="/sports">SPORTS</a>
           </li>
           <li className="navbar-links-li">
-            <a className="navbar-links-li-a text-xl text-slate-100" href="#">ABOUT</a>
+            <a className="navbar-links-li-a text-xl text-slate-100" href="/about">ABOUT</a>
           </li>
           <li className="navbar-links-li">
-            <a className="navbar-links-li-a text-xl text-slate-100" href="#">CONTACT</a>
+            <a className="navbar-links-li-a text-xl text-slate-100" href="/contact">CONTACT</a>
           </li>
           {/* Add more links as needed */}
         </ul>

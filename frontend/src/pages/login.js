@@ -53,11 +53,11 @@ function Login() {
     return(
         <div className="login-all">
         {/* <img src="https://media.istockphoto.com/id/185001125/photo/rolled-newspaper-pages.jpg?s=1024x1024&w=is&k=20&c=0A85y9An4IcyvyqqZ9eNeXAxCC-2HV9mFp9REFQkK6g=" alt="img" /> */}
-        <div className="login-main container">
+        <div className="login-main container ">
             <div className="login-logo-section row" >
                 <Logo/>
             </div>
-            <div className="login-content row">
+            <div className="login-content row ">
                  <div className="login-img col-md-12 col-sm-12 col-lg-12"  >
                     <div>
                         <img className="login-img-main" src="https://c1.wallpaperflare.com/preview/415/175/739/magnifier-newspaper-history-glass.jpg" alt="img" />

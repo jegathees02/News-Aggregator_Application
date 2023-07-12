@@ -49,6 +49,19 @@ function Signup() {
         setPreference3('');
         setPassword('');
         setRetype_password('');
+        setNameError('');
+        setEmailError('');
+        setMobileError('');
+        setAgeError('');
+        setStatesError('');
+        setDistrictError('');
+        setCityError('');
+        setPasswordError('');
+        setRetype_passwordError('');
+        setPreference1Error('');
+        setPreference2Error('');
+        setPreference3Error('');
+        
     }
 
     const handleSubmit = (event) => {
@@ -60,7 +73,7 @@ function Signup() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const strWithNum = /\d/;
         // const isValidStr = strWithNum.test
-        let isValidStr;
+        // let isValidStr;
         // let isValidEmail;
         // const isValidEmail = emailRegex.test(email);
         if(name === "") {
@@ -84,7 +97,7 @@ function Signup() {
         else{
             setEmailError('');
         }
-        if(mobile == 0 || mobile < 6000000000 || mobile > 9999999999) {
+        if(mobile === 0 || mobile < 6000000000 || mobile > 9999999999) {
             setMobileError("*Invalid Mobile Number");
             isValid = false;
         }
@@ -109,7 +122,7 @@ function Signup() {
             setStatesError("*State is required");
             isValid = false;
         }
-        else if(!(isValidStr = strWithNum.test(states))) {
+        else if(!(strWithNum.test(states))) {
             setStatesError("*State cannot contain numbers");
         }
         else{
@@ -119,7 +132,7 @@ function Signup() {
             setDistrictError("*District is required");
             isValid = false;
         }
-        else if(!(isValidStr = strWithNum.test(district))) {
+        else if(!(strWithNum.test(district))) {
             setDistrictError("*District cannot contain numbers");
         }
         else{
@@ -129,7 +142,7 @@ function Signup() {
             setCityError("*City is required");
             isValid = false;
         }
-        else if(!(isValidStr = strWithNum.test(city))) {
+        else if(!(strWithNum.test(city))) {
             setCityError("*City cannot contain numbers");
         }
         else{
@@ -139,7 +152,7 @@ function Signup() {
             setPreference1Error("*Preference is required");
             isValid = false;
         }
-        else if(!(isValidStr = strWithNum.test(preference1))) {
+        else if(!(strWithNum.test(preference1))) {
             setPreference1Error("*Preference cannot contain numbers");
         }
         else{
