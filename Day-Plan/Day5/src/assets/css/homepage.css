@@ -1,0 +1,39 @@
+
+/* 
+.home-page-navbar ::after{
+    content: "";
+    clear : both;
+    display : table;
+} */
+
+
+.home-page-main-content {
+    padding: 20px;
+    /* background-color: #f2f2f2; */
+  }
+  
+  .home-page-heading {
+    /* margin-bottom: 20px; */
+  }
+  /* h2{
+    color: red;
+  } */
+
+  .home-page-actual-grid{
+    border: 1px solid white;
+    
+  }
+  .home-page-news-grid{
+    border: 1px solid red;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+  .home-news1-grid {
+    /* border: 1px solid red; */
+  }
+  .home-page-component::after {
+    content: '';
+    clear: both;
+    display: table;
+
+  }
