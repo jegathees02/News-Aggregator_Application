@@ -35,19 +35,19 @@ function HomePage(props) {
     // "publishedAt": "2023-07-13T02:14:51Z",
     // "content": "Your browser isnt supported anymore. Update it to get the best YouTube experience and our latest features. Learn more\r\nRemind me later"
     // },
-    // {
-    // "source": {
-    // "id": null,
-    // "name": "KGO-TV"
-    // },
-    // "author": null,
-    // "title": "San Francisco's historic Anchor Brewing Company, country's 1st craft brewery, shutting down after 127 years - KGO-TV",
-    // "description": "\"It was great that Fitz Maytag saved it back in 1966. I just wish somebody would save it now.\" This latest development comes one month after Anchor announced it was stopping national distribution and discontinuing its Christmas Ale, which it has produced sinc…",
-    // "url": "https://abc7news.com/anchor-steam-brewery-brewing-shutting-down-san-francisco-closing/13493162/",
-    // "urlToImage": "https://cdn.abcotvs.com/dip/images/13495802_071223-kgo-anchor-brewing-building-img.jpg?w=1600",
-    // "publishedAt": "2023-07-13T01:30:00Z",
-    // "content": "SAN FRANCISCO (KGO) -- After 127 years in business, San Francisco's Anchor Brewing Company is shutting down.\r\nAccording to a press release, the brewery has been facing challenging economic factors an… [+4942 chars]"
-    // },
+    {
+    "source": {
+    "id": null,
+    "name": "KGO-TV"
+    },
+    "author": null,
+    "title": "San Francisco's historic Anchor Brewing Company, country's 1st craft brewery, shutting down after 127 years - KGO-TV",
+    "description": "\"It was great that Fitz Maytag saved it back in 1966. I just wish somebody would save it now.\" This latest development comes one month after Anchor announced it was stopping national distribution and discontinuing its Christmas Ale, which it has produced sinc…",
+    "url": "https://abc7news.com/anchor-steam-brewery-brewing-shutting-down-san-francisco-closing/13493162/",
+    "urlToImage": "https://cdn.abcotvs.com/dip/images/13495802_071223-kgo-anchor-brewing-building-img.jpg?w=1600",
+    "publishedAt": "2023-07-13T01:30:00Z",
+    "content": "SAN FRANCISCO (KGO) -- After 127 years in business, San Francisco's Anchor Brewing Company is shutting down.\r\nAccording to a press release, the brewery has been facing challenging economic factors an… [+4942 chars]"
+    },
     {
     "source": {
     "id": "reuters",

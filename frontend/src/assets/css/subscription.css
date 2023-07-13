@@ -1,0 +1,62 @@
+.subscription-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333; /* Set background color for night mode */
+    color: #fff; /* Set text color for night mode */
+  }
+  
+  .subscription-heading {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .subscription-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .subscription-input {
+    margin-bottom: 20px;
+  }
+  
+  .subscription-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .subscription-input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #444; /* Set input field background color for night mode */
+    color: #fff; /* Set input field text color for night mode */
+    outline: none;
+  }
+  
+  .subscription-input-field::placeholder {
+    color: #999;
+  }
+  
+  .subscription-submit-button {
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .subscription-submit-button:hover {
+    background-color: #c82333;
+  }
+  .subscription-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
