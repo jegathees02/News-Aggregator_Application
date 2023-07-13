@@ -125,7 +125,7 @@ import ".././assets/css/navbar.css";
 
 function Navbar() {
   return (
-    <div className="w-full" >
+    <div className="w-full bg-slate-950" >
     <nav className="navbar text-slate-100">
       <div className="ml-16 p-2 navbar-left">
         <Logo />

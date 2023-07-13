@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Logo from "../components/logo";
 import { Link } from "react-router-dom";
-// import "../components/css/signup.css";
+import { useNavigate } from "react-router-dom";
 import ".././assets/css/signup.css";
-// import ".././assets/css/login.css";
-// import { useState } from "react";
+
 
 
 function Signup() {
+    const navigate  = useNavigate();
+
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [mobile,setMobile] = useState('');
@@ -193,7 +194,8 @@ function Signup() {
         }
 
         if(isValid) {
-            alert("signup-success");
+            // alert("signup-success");
+            navigate('/login');
         }
 
     }
@@ -249,7 +251,7 @@ function Signup() {
                                     </div>
                                     <div className="age">
                                     <label className="text-slate-100 text-3xl login-input">Set Password:</label>
-                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Password" value={password} 
+                                        <input className="signup-input-box text-slate-950"  type="password" placeholder="Password" value={password} 
                                         onChange={(e) => setPassword(e.target.value)}/>
                                         {passwordError && (<div className="signup-error text-red-500 text-xl">{passwordError}</div>)}
                                     </div>
@@ -288,7 +290,7 @@ function Signup() {
                                     </div>
                                     <div className="age">
                                     <label className="text-slate-100 text-3xl login-input">Re-type Password:</label>
-                                        <input className="signup-input-box text-slate-950"  type="text" placeholder="Re-type Password" value={retype_password} 
+                                        <input className="signup-input-box text-slate-950"  type="password" placeholder="Re-type Password" value={retype_password} 
                                         onChange={(e) => setRetype_password(e.target.value)}/>
                                         {retype_passwordError && (<div className="signup-error text-red-500 text-xl">{retype_passwordError}</div>)}
                                     </div>

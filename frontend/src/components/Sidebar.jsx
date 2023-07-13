@@ -337,7 +337,7 @@ import ".././assets/css/sidebar.css";
 
 function Sidebar() {
   return (
-    <div className="sidebar text-xl text-slate-100">
+    <div className="sidebar text-xl text-slate-100 bg-slate-950">
       <ul className="sidebar-menu">
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a text-slate-100" href="#">LOCAL NEWS</a>
@@ -356,6 +356,9 @@ function Sidebar() {
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="#">SUBSCRIPTION</a>
+        </li>
+        <li className="sidebar-menu-li text-slate-100 ">
+          <a className="sidebar-menu-li-a" href="#">ACCOUNT</a>
         </li>
       </ul>
     </div>
