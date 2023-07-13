@@ -4,6 +4,9 @@ import Logo from "../components/logo";
 import ".././assets/css/login.css";
 import { Link } from "react-router-dom";
 import BackgroundImage from "../assets/login-background-image.jpg";
+import { useNavigate } from "react-router-dom";
+
+
 function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -11,8 +14,9 @@ function Login() {
     const [passwordError,setPasswordError] = useState("");
 
     const [clicked,setClicked] = useState(false);
+    const navigate = useNavigate();
 
-    // const[error,setError] = useState("");
+
     const handleClear = (event) => {
         event.preventDefault();
         setEmail("");
@@ -47,7 +51,8 @@ function Login() {
         if(isValid) {
             // setEmail("");
             // setPassword("");
-            alert("Login Successful");
+            // alert("Login Successful");
+            navigate('/home');
         }
     }
     return(

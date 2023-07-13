@@ -4,9 +4,7 @@
 
 /* @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro'); */
 
-body{
-   
-}
+
 
 .gs-tr {
   border-right: solid 3px rgba(0,255,0,.75);
@@ -37,13 +35,6 @@ body{
   to{border-right-color: transparent;}
 }
 
-
-
-
-
-.get-start-container-main-row{
-    /* margin-top: 5%; */
-}
 .get-start-right-side {
     width: 50%;
     float: right;
@@ -54,7 +45,7 @@ body{
     padding: 5%;
 }
 .get-start-right-img{
-    /* border-radius: ; */
+    margin-right: 14%;
 }
 .gs-tr{
     padding: 5%;
@@ -64,86 +55,104 @@ body{
     float: left;
 }
 
-.get-start-button-main{
-    /* padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
-    border: 1px solid wheat;
-    border-radius: 7px;
-    background-color: green;
-    font-weight: 700; */
+
+.get-start-api-fetch-main{
+  border-radius: 18px;
+  margin: 1%;
+  align-items: center;
 }
 
-.get-start-btn-7{
-    background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
-      line-height: 42px;
-      padding: 0;
-      border: none;
-    }
-    .get-start-btn-7-span {
-      position: relative;
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-    .get-start-btn-7:before,
-    .get-start-btn-7:after {
-      position: absolute;
-      content: "";
-      right: 0;
-      bottom: 0;
-      background: rgba(251,75,2,1);
-      box-shadow:
-       -7px -7px 20px 0px rgba(255,255,255,.9),
-       -4px -4px 5px 0px rgba(255,255,255,.9),
-       7px 7px 20px 0px rgba(0,0,0,.2),
-       4px 4px 5px 0px rgba(0,0,0,.3);
-      transition: all 0.3s ease;
-    }
-    .get-start-btn-7:before{
-       height: 0%;
-       width: 2px;
-    }
-    .get-start-btn-7:after {
-      width: 0%;
-      height: 2px;
-    }
-    .get-start-btn-7:hover{
-      color: rgba(251,75,2,1);
-      background: transparent;
-    }
-    .get-start-btn-7:hover:before {
-      height: 100%;
-    }
-    .get-start-btn-7:hover:after {
-      width: 100%;
-    }
-    .get-start-btn-7-span:before,
-    .get-start-btn-7-span:after {
-      position: absolute;
-      content: "";
-      left: 0;
-      top: 0;
-      background: rgba(251,75,2,1);
-      box-shadow:
-       -7px -7px 20px 0px rgba(255,255,255,.9),
-       -4px -4px 5px 0px rgba(255,255,255,.9),
-       7px 7px 20px 0px rgba(0,0,0,.2),
-       4px 4px 5px 0px rgba(0,0,0,.3);
-      transition: all 0.3s ease;
-    }
-    .get-start-btn-7-span:before {
-      width: 2px;
-      height: 0%;
-    }
-    .get-start-btn-7-span:after {
-      height: 2px;
-      width: 0%;
-    }
-    .get-start-btn-7-span:hover:before {
-      height: 100%;
-    }
-    .get-start-btn-7-span:hover:after {
-      width: 100%;
-    }
+
+.get-start-api-fetch-title{
+  text-align: center;
+}
+
+.get-start-nineteen{
+  margin-left: 45%;
+  width: 200px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+}
+.get-start-nineteen {
+  border-radius: 4px;
+  background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* background: linear-gradient(to right, #67b26b, #4ca2cb); */
+  color: #fff;
+  padding: 20px 0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.get-start-nineteen-span {
+  position: relative;
+  transition: 400ms;
+}
+.get-start-nineteen-span::before{
+  content : '';
+}
+
+.get-start-nineteen-span::after {
+  content: '\00bb';
+  position: absolute; 
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 500ms;
+}
+
+.get-start-nineteen:hover span {
+  padding-right: 25px;
+}
+
+.get-start-nineteen-span::after {
+  opacity: 1;
+  right: 0;
+}
+
+.get-start-api-fetch-button-two {
+  color:#ffffff;
+  text-align: center;
+  /* padding: 10px; */
+  text-align: center;
+  cursor: pointer;
+  font-size:24px;
+  margin: 0 0 0 100px;
+  border-radius: 4px;
+  background-color:#1de10b9b;
+  border: none;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+}
+
+
+.get-start-api-fetch-button-two-span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.get-start-api-fetch-button-two-span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.get-start-api-fetch-button-two:hover span {
+  padding-right: 25px;
+}
+
+.get-start-api-fetch-button-two:hover get-start-api-fetch-button-two-span:after {
+  opacity: 1;
+  right: 0;
+}
