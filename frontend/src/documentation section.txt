@@ -14,3 +14,6 @@ npm install react-pro-sidebar
 
 npm i mdb-react-ui-kit
 npm i @fortawesome/fontawesome-free
+npm install @fortawesome/fontawesome-free
+npm install @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons
+npm install @fortawesome/react-fontawesome

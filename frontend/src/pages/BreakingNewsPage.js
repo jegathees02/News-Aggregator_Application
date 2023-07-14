@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import Contact from "../components/Contact";
+import BreakingNews from "../components/BreakingNews";
 import Footer from "../components/Footer";
 
-function ContactPage() {
+function BreakingNewsPage() {
     return(
         <>
         <div className="homepage-main">
@@ -17,7 +17,7 @@ function ContactPage() {
             </div>
             </div>
             <div className="home-page-main-content w-4/5 float-right bg-gradient-to-r from-slate-600 to-slate-900">
-              <Contact />
+              <BreakingNews />
             </div>
             <div className="home-page-footer">
         <div className="home-footer w-4/5 float-right">
@@ -29,4 +29,4 @@ function ContactPage() {
     )
 }
 
-export default ContactPage;
+export default BreakingNewsPage;

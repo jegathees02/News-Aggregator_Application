@@ -340,17 +340,14 @@ function Sidebar() {
     <div className="sidebar text-xl text-slate-100 bg-slate-950">
       <ul className="sidebar-menu">
         <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a text-slate-100" href="#">LOCAL NEWS</a>
+          <a className="sidebar-menu-li-a text-slate-100" href="/article">ARTICLES</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a" href="#">DISTRICT NEWS</a>
+          <a className="sidebar-menu-li-a" href="/saved">SAVED ARTICLES</a>
         </li>
-        <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a" href="#">ACCOUNT INFORMATION</a>
-        </li>
-        <li className="sidebar-menu-li text-slate-100 ">
+        {/* <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="#">SETTINGS</a>
-        </li>
+        </li> */}
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="#">PREFERENCES</a>
         </li>
@@ -358,7 +355,13 @@ function Sidebar() {
           <a className="sidebar-menu-li-a" href="/subscription">SUBSCRIPTION</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
+          <a className="sidebar-menu-li-a" href="/contact">CONTACT</a>
+        </li>
+        <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="#">ACCOUNT</a>
+        </li>
+        <li className="sidebar-menu-li text-slate-100 ">
+          <a className="sidebar-menu-li-a" href="/">LOGOUT</a>
         </li>
       </ul>
     </div>

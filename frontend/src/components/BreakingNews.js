@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart, faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
 
-function EntertainmentPageNews() {
+function BreakingNews() {
     const [articleStates, setArticleStates] = useState([]);
 
     const [articles, setArticles] = useState([]);
@@ -31,8 +31,9 @@ function EntertainmentPageNews() {
     useEffect(() => {
         // axios.get('www.google.com')
         //worldnews api
-        axios.get('https://api.worldnewsapi.com/search-news?api-key=35ec723270d040bfb6e059733a3eaf40&text=entertainment')
-          .then(response => setArticles(response.data.news.slice(0, 4)))
+        // axios.get('https://api.worldnewsapi.com/search-news?api-key=35ec723270d040bfb6e059733a3eaf40&text=entertainment')
+        axios.get('https://newsdata.io/api/1/news?apikey=pub_2618259e450c3cb95e3e6be38341405b240da&q=pegasus&language=en')
+          .then(response => setArticles(response.data.results.slice(0, 4)))
           .catch(error => console.log(error));
       }, []);
 
@@ -51,7 +52,7 @@ function EntertainmentPageNews() {
                     <div className="md:2 home-page-actual-grid text-xl text-slate-100">
                       <ul className="flex flex-col">
                         <div className="home-page-news-grid">
-                          <img className="home-page-news-grid-img" src={article.image} alt="img" />
+                          <img className="home-page-news-grid-img" src={article.image_url} alt="img" />
                           <div className="reaction-icons">
                             {/* <FontAwesomeIcon
                               icon={articleStates[index]?.liked ? faHeart : farHeart}
@@ -80,4 +81,4 @@ function EntertainmentPageNews() {
     )
 }
 
-export default EntertainmentPageNews;
+export default BreakingNews;

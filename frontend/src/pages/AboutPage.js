@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import About from "../components/about";
+import Footer from "../components/Footer";
 
 function AboutPage() {
     return(
@@ -18,6 +19,11 @@ function AboutPage() {
             <div className="home-page-main-content w-4/5 float-right bg-gradient-to-r from-slate-600 to-slate-900">
               <About />
             </div>
+            <div className="home-page-footer">
+        <div className="home-footer w-4/5 float-right">
+          <Footer />
+        </div>
+      </div>
           </div>
         </>
     )

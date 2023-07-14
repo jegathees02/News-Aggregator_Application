@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Logo from "../components/logo";
 import ".././assets/css/login.css";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
+import { UseSelector,useDispatch, useSelector } from "react-redux";
 
 
 function Login() {
@@ -12,16 +13,17 @@ function Login() {
     const [passwordError,setPasswordError] = useState("");
 
     const [clicked,setClicked] = useState(false);
-    const navigate = useNavigate();
+    
 
 
     const handleClear = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         setEmail("");
         setPassword("");
     }
     const handleSubmit = (event) => {
         event.preventDefault();
+        dispatch({type: "SET_USERNAME",payload: email});
         setClicked(true);
         setTimeout(() => {
             setClicked(false);},100);
@@ -29,6 +31,7 @@ function Login() {
         validate();
         
     }
+    
 
     const validate = () => {
         let isValid = true;
@@ -47,11 +50,28 @@ function Login() {
             setPasswordError("");
         }
         if(isValid) {
-            // setEmail("");
-            // setPassword("");
-            // alert("Login Successful");
-            navigate('/home');
+            if(email === 'jegathees' && password === 'skcet123') {
+                navigate('/home');
+            }
+            else{
+                alert('Invalid Credentials');
+                handleClear();
+            }
         }
+    
+    }
+    const navigate = useNavigate();
+    const location = useLocation();
+    const dispatch = useDispatch();
+    const username = useSelector((state) => state.username);
+    const handleUserNameChange = (e) => {
+        setEmail(e.target.value);
+        
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        // validate();
     }
     return(
         <div className="login-all">
@@ -76,12 +96,15 @@ function Login() {
                                     <label className="text-slate-100 text-3xl login-input">Username/Email:
                                         <input className="input-box text-slate-950" type="text" value={email}
                                          id = "email" placeholder="Email/Username"
-                                        onChange={(e) => setEmail(e.target.value)} />
+                                        // onChange={(e) => setEmail(e.target.value)} 
+                                        onChange={handleUserNameChange}
+                                        />
                                         {emailError && (<div className="login-error text-red-500 text-xl">{emailError}</div>)}
                                         </label>
                                     <label className="text-slate-100 text-3xl login-input">Password:
                                         <input className="input-box text-slate-950" type="password" id = "password" placeholder="Password" value={password}
-                                        onChange={(e) => setPassword(e.target.value)}></input>
+                                        // onChange={(e) => setPassword(e.target.value)}
+                                        onChange={handlePasswordChange}></input>
                                         {passwordError && (<div className="login-error text-red-500 text-xl">{passwordError}</div>)}
                                         </label>
                                         <div className="login-button">

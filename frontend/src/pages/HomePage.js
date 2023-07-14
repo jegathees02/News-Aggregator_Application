@@ -1,14 +1,42 @@
-import React from "react";
+import React, { useState ,useEffect} from "react";
+import axios from "axios";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import '.././assets/css/homepage.css';
+import ".././assets/css/homepage.css";
 import Footer from "../components/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart, faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
+import { UseSelector, useSelector } from "react-redux";
 
 
-function HomePage(props) {
+function HomePage() {
+  const [articleStates, setArticleStates] = useState([]);
+  const [articles, setArticles] = useState([]);
 
+  useEffect(() => {
+    axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-06-21&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c')
+      .then(response => setArticles(response.data.articles.slice(0, 4)))
+      .catch(error => console.log(error));
+  }, []);
 
-  const articles = [
+  const handleBookmarkClick = (index) => {
+    const updatedStates = [...articleStates];
+    if (updatedStates[index]) {
+      updatedStates[index].bookmarked = !updatedStates[index].bookmarked;
+      setArticleStates(updatedStates);
+    }
+  };
+  
+  const handleLikeClick = (index) => {
+    const updatedStates = [...articleStates];
+    if (updatedStates[index]) {
+      updatedStates[index].liked = !updatedStates[index].liked;
+      setArticleStates(updatedStates);
+    }
+  };
+
+  const articles1 = [
     {
     "source": {
     "id": "financial-times",
@@ -257,95 +285,74 @@ function HomePage(props) {
     // "content": null
     // }
   ];
+  
+
+  useState(() => {
+    const initialStates = articles.map(() => ({
+      bookmarked: false,
+      liked: false,
+    }));
+    setArticleStates(initialStates);
+  }, [articles]);
 
 
-  const newsInfo = [
-    {
-      imgsrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnsw3fppDvuKwbsoK75KlOKZ0koiS7dJpYtQ&usqp=CAU',
-      desc : 'Helloo hai'
-    },
-    {
-      imgsrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnsw3fppDvuKwbsoK75KlOKZ0koiS7dJpYtQ&usqp=CAU',
-      desc : 'Helloo hai'
-    },
-    {
-      imgsrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnsw3fppDvuKwbsoK75KlOKZ0koiS7dJpYtQ&usqp=CAU',
-      desc : 'Helloo hai'
-    },
-    {
-      imgsrc : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnsw3fppDvuKwbsoK75KlOKZ0koiS7dJpYtQ&usqp=CAU',
-      desc : 'Helloo hai'
-    },
-  ]
-  const home = articles.map((article) => 
-  <li>{article}</li>)
-
-
-        return (
-          <div className="homepage-main">
-            <div >
-            <div className="homepage-component">
-            <div className="home-page-navbar">
-              <Navbar />
-            </div>
-            <div className="home-page-sidebar m-t-4">
-              <Sidebar />
-            </div>
-            </div>
-            <div className="home-page-main-content w-4/5 float-right">
-              <div className="home-page-heading">
-                <h2 className="text-3xl text-red-500">Hello User</h2>
-              </div> 
-              <div className="home-page-api-content-area text-slate-100 text-2xl">
-                    
-                </div>
-              <div className="flex flex-row">
-                {articles.map((article) => {
-                  const list = (
-                    
-                    <div className="home-news1-grid">
-                    <div className="homepage-news-grid m-3" >
-                <div className="md:2 home-page-actual-grid text-xl text-slate-100">
-                  
-                  <ul className=" flex flex-col">
-                  <div className="home-page-news-grid">
-                    <img className = "home-page-news-grid-img" src={article.urlToImage} alt="img" />
-                  </div>
-                  <div className="home-page-news-desc text-base text-center">
-                    <h3 className="t">{article.title}</h3>
-                  </div>
-                  </ul>
-                </div>
-              </div>
-                    </div>
-                    
-                  );
-                  return list;
-                })}
-              </div>
-              {/* <div className="homepage-news-grid w-1/5">
-                <div className="md:2 home-page-actual-grid text-xl text-slate-100">
-                
-                  <ul>
-                  <div className="home-page-news-grid">
-                    <img src={props.imgsrc} alt="img" />
-                  </div>
-                  <div className="home-page-news-desc">
-                    <h3>{props.desc}</h3>
-                  </div>
-                  </ul>
-                </div>
-              </div> */}
-            </div>
-            </div>
-
-            {/* <div className="home-page-footer">
-              <div className="home-footer">
-                <Footer />
-              </div>
-            </div> */}
+  const username = useSelector((state) => state.username);
+  return (
+    <div className="homepage-main">
+      <div>
+        <div className="homepage-component">
+          <div className="home-page-navbar">
+            <Navbar />
           </div>
-        );
-      }
-    
+          <div className="home-page-sidebar m-t-4">
+            <Sidebar />
+          </div>
+        </div>
+        <div className="home-page-main-content w-4/5 float-right">
+          <div className="home-page-heading">
+            <h2 className="text-3xl text-red-500">Hello {username}</h2>
+          </div>
+          <div className="home-page-api-content-area text-slate-100 text-2xl">
+            <div className="flex flex-row">
+              {articles.map((article, index) => (
+                <div className="home-news1-grid" key={index}>
+                  <div className="homepage-news-grid m-3">
+                    <div className="md:2 home-page-actual-grid text-xl text-slate-100">
+                      <ul className="flex flex-col">
+                        <div className="home-page-news-grid">
+                          <img className="home-page-news-grid-img" src={article.urlToImage} alt="img" />
+                          <div className="reaction-icons">
+                            {/* <FontAwesomeIcon
+                              icon={articleStates[index]?.liked ? faHeart : farHeart}
+                              className="heart-icon"
+                              onClick={() => handleLikeClick(index)}
+                            /> */}
+                            <FontAwesomeIcon
+                              icon={articleStates[index]?.bookmarked ? faBookmark : farBookmark}
+                              className="bookmark-icon"
+                              onClick={() => handleBookmarkClick(index)}
+                            />
+                          </div>
+                        </div>
+                        <div className="home-page-news-desc text-base text-center">
+                          <h3 className="t">{article.title}</h3>
+                        </div>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="home-page-footer">
+        <div className="home-footer w-4/5 float-right">
+          <Footer />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default HomePage;

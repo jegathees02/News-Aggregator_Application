@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart, faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
 
-function EntertainmentPageNews() {
+function Article() {
     const [articleStates, setArticleStates] = useState([]);
 
     const [articles, setArticles] = useState([]);
@@ -31,7 +31,7 @@ function EntertainmentPageNews() {
     useEffect(() => {
         // axios.get('www.google.com')
         //worldnews api
-        axios.get('https://api.worldnewsapi.com/search-news?api-key=35ec723270d040bfb6e059733a3eaf40&text=entertainment')
+        axios.get('https://api.worldnewsapi.com/search-news?api-key=35ec723270d040bfb6e059733a3eaf40&text=articles')
           .then(response => setArticles(response.data.news.slice(0, 4)))
           .catch(error => console.log(error));
       }, []);
@@ -80,4 +80,4 @@ function EntertainmentPageNews() {
     )
 }
 
-export default EntertainmentPageNews;
+export default Article;

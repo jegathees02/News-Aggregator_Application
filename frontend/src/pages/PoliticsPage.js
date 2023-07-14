@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 // import TrendingNews from "../components/TrendingNews";
 import PoliticsNews from "../components/PoliticsNews";
+import Footer from "../components/Footer";
 
 function PoliticsPage() {
     return(
@@ -19,6 +20,11 @@ function PoliticsPage() {
             <div className="home-page-main-content w-4/5 float-right bg-gradient-to-r from-slate-600 to-slate-900">
               <PoliticsNews />
             </div>
+            <div className="home-page-footer">
+        <div className="home-footer w-4/5 float-right">
+          <Footer />
+        </div>
+      </div>
           </div>
         </>
     )

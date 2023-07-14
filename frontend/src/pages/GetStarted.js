@@ -8,7 +8,7 @@ function GetStarted() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-06-12&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c')
+    axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-06-21&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c')
       .then(response => setArticles(response.data.articles.slice(0, 12)))
       .catch(error => console.log(error));
   }, []);

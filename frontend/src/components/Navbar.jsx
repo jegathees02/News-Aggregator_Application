@@ -136,6 +136,9 @@ function Navbar() {
             <a className="navbar-links-li-a  text-xl text-slate-100" href="/home">HOME</a>
           </li>
           <li className="navbar-links-li">
+            <a className="navbar-links-li-a text-xl text-slate-100" href="/breaking">BREAKING</a>
+          </li>
+          <li className="navbar-links-li">
             <a className="navbar-links-li-a text-xl text-slate-100" href="/trending">TRENDING</a>
           </li>
           <li className="navbar-links-li">
@@ -150,9 +153,9 @@ function Navbar() {
           <li className="navbar-links-li">
             <a className="navbar-links-li-a text-xl text-slate-100" href="/about">ABOUT</a>
           </li>
-          <li className="navbar-links-li">
+          {/* <li className="navbar-links-li">
             <a className="navbar-links-li-a text-xl text-slate-100" href="/contact">CONTACT</a>
-          </li>
+          </li> */}
           {/* Add more links as needed */}
         </ul>
         <div className="navbar-profile">

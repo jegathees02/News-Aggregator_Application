@@ -15,6 +15,8 @@ import SportsPage from './pages/SportsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SubscriptionPage from './pages/Subscriptionpage';
+import ArticlePage from './pages/ArticlePage';
+import BreakingNewsPage from './pages/BreakingNewsPage';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import sidebar from './components/Sidebar';
 import Footer from './components/Footer';
@@ -41,6 +43,8 @@ function App() {
         <Route path = '/about' Component={AboutPage} />
         <Route path = '/contact' Component={ContactPage} />
         <Route path = '/subscription' Component={SubscriptionPage} />
+        <Route path = '/article' Component={ArticlePage} />
+        <Route path = '/breaking' Component={BreakingNewsPage} />
       </Routes>
       </Router>
     </div>

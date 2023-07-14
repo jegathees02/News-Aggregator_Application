@@ -36,7 +36,8 @@
 .get-start-right-side {
   width: 50%;
   float: right;
-  padding: 5%;
+  padding-left: 5%;
+  padding-top: 5px;
 }
 
 .get-start-right-side .get-start-right-img-area {
@@ -51,15 +52,22 @@
   padding: 5%;
 }
 
-.get-start-left-side {
+.get-start-left-side  {
   width: 50%;
   float: left;
   overflow-y: auto;
 }
+.get-start-api-fetch-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
 
 .get-start-left-side-scroll {
-  max-height: 100vh;
-  overflow-y: auto;
+  /* max-height: 100vh; */
+  /* overflow-y: auto; */
+  overflow: hidden;
 }
 
 .get-start-api-fetch-main {
@@ -127,8 +135,10 @@
   text-align: center;
   text-align: center;
   cursor: pointer;
-  font-size: 24px;
-  margin: 0 0 0 100px;
+  display: block;
+  font-size: 20px;
+  margin:auto;
+  /* margin: 0 0 0 100px; */
   border-radius: 4px;
   background-color: #1de10b9b;
   border: none;
