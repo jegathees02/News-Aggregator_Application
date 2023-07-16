@@ -17,3 +17,5 @@ npm i @fortawesome/fontawesome-free
 npm install @fortawesome/fontawesome-free
 npm install @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons
 npm install @fortawesome/react-fontawesome
+
+npm i react-simple-typewriter

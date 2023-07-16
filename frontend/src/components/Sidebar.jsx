@@ -349,7 +349,7 @@ function Sidebar() {
           <a className="sidebar-menu-li-a" href="#">SETTINGS</a>
         </li> */}
         <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a" href="#">PREFERENCES</a>
+          <a className="sidebar-menu-li-a" href="/preference">PREFERENCES</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="/subscription">SUBSCRIPTION</a>
@@ -358,7 +358,7 @@ function Sidebar() {
           <a className="sidebar-menu-li-a" href="/contact">CONTACT</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a" href="#">ACCOUNT</a>
+          <a className="sidebar-menu-li-a" href="/account">ACCOUNT</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="/">LOGOUT</a>

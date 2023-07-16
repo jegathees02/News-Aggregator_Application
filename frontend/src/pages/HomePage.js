@@ -346,6 +346,8 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      
       <div className="home-page-footer">
         <div className="home-footer w-4/5 float-right">
           <Footer />

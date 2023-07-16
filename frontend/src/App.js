@@ -17,6 +17,8 @@ import ContactPage from './pages/ContactPage';
 import SubscriptionPage from './pages/Subscriptionpage';
 import ArticlePage from './pages/ArticlePage';
 import BreakingNewsPage from './pages/BreakingNewsPage';
+import PreferencesPage from './pages/PreferencesPage';
+import AccountPage from './pages/AccountPage';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import sidebar from './components/Sidebar';
 import Footer from './components/Footer';
@@ -45,6 +47,9 @@ function App() {
         <Route path = '/subscription' Component={SubscriptionPage} />
         <Route path = '/article' Component={ArticlePage} />
         <Route path = '/breaking' Component={BreakingNewsPage} />
+        <Route path = '/preference' Component={PreferencesPage} />
+        <Route path = '/account' Component={AccountPage} />
+        <Route path = '/saved' Component={ArticlePage} />
       </Routes>
       </Router>
     </div>

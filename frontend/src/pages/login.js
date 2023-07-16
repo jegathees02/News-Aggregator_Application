@@ -93,9 +93,9 @@ function Login() {
                             </div>
                             <div className="login-input-form">
                                 <form className="form-group" onSubmit={handleSubmit}>
-                                    <label className="text-slate-100 text-3xl login-input">Username/Email:
+                                    <label className="text-slate-100 text-3xl login-input">Username:
                                         <input className="input-box text-slate-950" type="text" value={email}
-                                         id = "email" placeholder="Email/Username"
+                                         id = "email" placeholder="Username...."
                                         // onChange={(e) => setEmail(e.target.value)} 
                                         onChange={handleUserNameChange}
                                         />
