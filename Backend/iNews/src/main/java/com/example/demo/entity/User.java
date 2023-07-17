@@ -17,15 +17,15 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class User{
+public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int user_id;
+	private long user_id;
 	private String username;
 	private String name;
 	private String email;
 	private int age;
-	private int mobile;
+	private long mobile;
 	private String state;
 	private String district;
 	private String city;

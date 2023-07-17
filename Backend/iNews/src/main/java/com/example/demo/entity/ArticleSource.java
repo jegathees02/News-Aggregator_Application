@@ -19,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ArticleSource {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY);
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long article_id;
 	private String title;
 	private String img_url;

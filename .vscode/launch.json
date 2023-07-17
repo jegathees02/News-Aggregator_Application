@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-INewsApplication<iNews>",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.demo.INewsApplication",
+            "projectName": "iNews",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
