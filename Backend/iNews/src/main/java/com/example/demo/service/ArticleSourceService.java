@@ -18,8 +18,8 @@ import com.example.demo.repository.ArticleSourceRepository;
 @Service
 public class ArticleSourceService {
 
-    private static final String NEWS_API_KEY = "";
-    private static final String NEWS_API_URL = "";
+    private  final String NEWS_API_KEY = "";
+    private final String NEWS_API_URL = "";
     @Autowired 
     ArticleSourceRepository articleRepo;
 
@@ -32,46 +32,46 @@ public class ArticleSourceService {
         return "Deleted";
     }
 
-    @Async
-    public CompletableFuture<Void> fetchAndSaveNewsArticles() {
-        RestTemplate restTemplate = new RestTemplate();
-        NewsApiResponse response = restTemplate.getForObject(NEWS_API_URL, NewsApiResponse.class);
+    // @Async
+    // public CompletableFuture<Void> fetchAndSaveNewsArticles() {
+    //     RestTemplate restTemplate = new RestTemplate();
+    //     NewsApiResponse response = restTemplate.getForObject(NEWS_API_URL, NewsApiResponse.class);
 
-        if (response != null && response.getArticles() != null) {
-            List<NewsApiArticle> articles = response.getArticles();
-            for (NewsApiArticle article : articles) {
-                NewsArticle existingNewsArticle = newsArticleRepository.findByUrl(article.getUrl());
+    //     if (response != null && response.getArticles() != null) {
+    //         List<NewsApiArticle> articles = response.getArticles();
+    //         for (NewsApiArticle article : articles) {
+    //             NewsArticle existingNewsArticle = ArticleSourceRepository.findByUrl(article.getUrl());
 
-                if (existingNewsArticle == null) {
-                    // If the news article does not exist, create a new one
-                    NewsArticle newsArticle = new NewsArticle();
-                    newsArticle.setTitle(article.getTitle());
-                    newsArticle.setDescription(article.getDescription());
-                    newsArticle.setUrl(article.getUrl());
-                    newsArticle.setPublishedAt(article.getPublishedAt());
+    //             if (existingNewsArticle == null) {
+    //                 // If the news article does not exist, create a new one
+    //                 NewsArticle newsArticle = new NewsArticle();
+    //                 newsArticle.setTitle(article.getTitle());
+    //                 newsArticle.setDescription(article.getDescription());
+    //                 newsArticle.setUrl(article.getUrl());
+    //                 newsArticle.setPublishedAt(article.getPublishedAt());
 
-                    // Set ArticleSource if needed
-                    // ArticleSource articleSource = articleSourceRepository.findBy...;
-                    // newsArticle.setArticleSource(articleSource);
+    //                 // Set ArticleSource if needed
+    //                 // ArticleSource articleSource = articleSourceRepository.findBy...;
+    //                 // newsArticle.setArticleSource(articleSource);
 
-                    newsArticleRepository.save(newsArticle);
-                } else {
-                    // If the news article already exists, update its properties
-                    existingNewsArticle.setTitle(article.getTitle());
-                    existingNewsArticle.setDescription(article.getDescription());
-                    existingNewsArticle.setPublishedAt(article.getPublishedAt());
+    //                 newsArticleRepository.save(newsArticle);
+    //             } else {
+    //                 // If the news article already exists, update its properties
+    //                 existingNewsArticle.setTitle(article.getTitle());
+    //                 existingNewsArticle.setDescription(article.getDescription());
+    //                 existingNewsArticle.setPublishedAt(article.getPublishedAt());
 
-                    // Set ArticleSource if needed
-                    // ArticleSource articleSource = articleSourceRepository.findBy...;
-                    // existingNewsArticle.setArticleSource(articleSource);
+    //                 // Set ArticleSource if needed
+    //                 // ArticleSource articleSource = articleSourceRepository.findBy...;
+    //                 // existingNewsArticle.setArticleSource(articleSource);
 
-                    newsArticleRepository.save(existingNewsArticle);
-                }
-            }
-        }
+    //                 newsArticleRepository.save(existingNewsArticle);
+    //             }
+    //         }
+    //     }
 
-        return CompletableFuture.completedFuture(null);
-    }
-    }
+    //     return CompletableFuture.completedFuture(null);
+    // }
+    // }
     
 }

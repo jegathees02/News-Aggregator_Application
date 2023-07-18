@@ -1,0 +1,10 @@
+.logo-main{
+    cursor: pointer;
+}
+
+.logo-container{
+    float: left;
+    display: grid;
+    place-items: left;
+}
+$duration: 4s;
