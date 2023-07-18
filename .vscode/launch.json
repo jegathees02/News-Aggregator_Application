@@ -3,6 +3,7 @@
         {
             "type": "java",
             "name": "Spring Boot-INewsApplication<iNews>",
+            "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.example.demo.INewsApplication",
             "projectName": "iNews",
