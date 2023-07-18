@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,12 +31,7 @@ public class ArticleSourceController {
         return articleRepo.findAll();
     }
 
-    @GetMapping("/fetch")
-    public String fetchAndSaveNews() throws ExecutionException, InterruptedException {
-        CompletableFuture<Void> future = ArticleSourceService.fetchAndSaveNewsArticles();
-        future.get();
-        return "News data fetched and saved";
-    }
+    
 
     @PostMapping("/post")
     public ArticleSource create(@RequestBody ArticleSource article) {

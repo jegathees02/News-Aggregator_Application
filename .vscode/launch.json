@@ -8,6 +8,17 @@
             "mainClass": "com.example.demo.INewsApplication",
             "projectName": "iNews",
             "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=46221 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=iNews"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-INewsApplication<demo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.demo.INewsApplication",
+            "projectName": "demo",
+            "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
     ]
