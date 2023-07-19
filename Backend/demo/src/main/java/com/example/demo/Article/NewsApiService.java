@@ -8,19 +8,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.Entity.ArticleDetails;
 import com.example.demo.Repository.ArticleDetailRepository;
 
-// import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-// @Slf4j
+@Slf4j
 
 public class NewsApiService {
 	private static Logger logger = LoggerFactory.getLogger(NewsApiService.class);
@@ -90,7 +90,7 @@ public class NewsApiService {
     }
 
     // Save fetched news articles to the database
-    @PostMapping("/post")
+    
     public void saveNewsArticlesToDatabase() {
         List<ArticleDetails> articles = fetchNewsArticles();
         articleDetailRepository.saveAll(articles);

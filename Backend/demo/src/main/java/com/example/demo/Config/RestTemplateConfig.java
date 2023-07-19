@@ -1,14 +1,14 @@
-package com.example.demo.Config;
+// package com.example.demo.Config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Configuration;
+// import org.springframework.web.client.RestTemplate;
 
-@Configuration
-public class RestTemplateConfig {
-    @Bean
-     RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-}
+// @Configuration
+// public class RestTemplateConfig {
+//     @Bean
+//      RestTemplate restTemplate() {
+//         return new RestTemplate();
+//     }
+// }
 
