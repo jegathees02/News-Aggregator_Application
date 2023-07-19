@@ -1,3 +1,4 @@
+
 package com.example.demo.Article;
 
 import java.util.List;
@@ -16,6 +17,5 @@ public class NewsApiResponse {
         this.articles = articles;
     }
 }
-
 
 

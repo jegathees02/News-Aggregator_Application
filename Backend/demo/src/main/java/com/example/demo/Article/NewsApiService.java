@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -90,7 +91,7 @@ public class NewsApiService {
     }
 
     // Save fetched news articles to the database
-    
+    @Bean
     public void saveNewsArticlesToDatabase() {
         List<ArticleDetails> articles = fetchNewsArticles();
         articleDetailRepository.saveAll(articles);
