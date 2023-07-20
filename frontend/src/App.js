@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import getStartedComponent from './components/getStartedComponent';
 import Logo from './components/logo';
 import Login from './pages/login';
@@ -19,12 +20,14 @@ import ArticlePage from './pages/ArticlePage';
 import BreakingNewsPage from './pages/BreakingNewsPage';
 import PreferencesPage from './pages/PreferencesPage';
 import AccountPage from './pages/AccountPage';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 
 
 function App() {
+  // const navigate = useNavigate();
+  const isAuthenticated = !!localStorage.getItem("token"); // Check if the user is authenticated
   return (
     <div className="App">
       <Router>
@@ -34,10 +37,16 @@ function App() {
         <Route path = "/logo" Component={Logo} />
         <Route path = "/login" Component={Login} />
         <Route path='/signup' Component={signup} />
+        <ProtectedRoute
+          path = '/home' 
+          Component = {HomePage}
+          isAuthenticated = {isAuthenticated}
+          />
+          {/* <ProtectedRoute */}
         <Route path = '/navbar' Component={Navbar} />
         <Route path = '/sidebar' Component={sidebar} />
         <Route path = '/footer' Component={Footer} />
-        <Route path = '/home' Component={HomePage} />
+        {/* <Route path = '/home' Component={HomePage} /> */}
         <Route path = '/trending' Component={TrendingPage} />
         <Route path = '/politics' Component={PoliticsPage} />
         <Route path = '/entertainment' Component={EntertainmentPage} />
@@ -56,4 +65,10 @@ function App() {
   );
 }
 
+
+function ProtectedRoute({ element: Component, isAuthenticated, ...rest }) {
+  return (
+    isAuthenticated ? <Route {...rest} element={<Component {...rest} />} /> : <Link to="/login" />
+  );
+}
 export default App;

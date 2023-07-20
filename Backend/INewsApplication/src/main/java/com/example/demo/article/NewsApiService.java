@@ -34,7 +34,7 @@ public class NewsApiService {
 //    @GetMapping("/api/data/fetch")
     public List<ArticleDetails> fetchNewsArticles() {
 //        String url = apiUrl + "?apiKey=" + apiKey;
-    	String url = "https://newsapi.org/v2/everything?q=tesla&from=2023-06-19&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c";
+    	String url = "https://newsapi.org/v2/everything?q=tesla&from=2023-06-22&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c";
         ResponseEntity<NewsApiResponse> response = restTemplate.getForEntity(url, NewsApiResponse.class);
         List<ArticleDetails> articles = new ArrayList<>();
         if (response.getStatusCode().is2xxSuccessful()) {

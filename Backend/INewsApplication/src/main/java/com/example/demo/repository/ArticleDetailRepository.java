@@ -1,16 +1,16 @@
-
 package com.example.demo.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-// import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.example.demo.entity.ArticleDetails;
 
-// @Repository
-public interface ArticleDetailRepository extends JpaRepository<ArticleDetails, Long> {
+public interface ArticleDetailRepository  extends JpaRepository<ArticleDetails,Long> {
+//     Any additional methods or custom queries can be added here.
+	// @Query("Select * from article_main")
+	// public List<ArticleDetails> findAll();
 
-    void save(List<ArticleDetails> articles);
-    
+    // public void saveAll(List<ArticleDetails> articles);
 }

@@ -1,15 +1,34 @@
 
 package com.example.demo.entity;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 // import jakarta.persistence.Entity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 //import org.springframework.data.annotation.Id;
 //import jakarta.persistence.*;
 
+@Data
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "inewsuserdetails")
-public class iNewsUserDetails {
+public class iNewsUserDetails implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long user_id;
@@ -28,10 +47,18 @@ public class iNewsUserDetails {
 	private String p3;
 	private boolean isSubscribed = false;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    public iNewsUserDetails() {
-        
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
+
+
+    // public iNewsUserDetails() {
+        
+    // }
     public iNewsUserDetails(long user_id, String username, String name, String email, int age, long mobile,
             String state, String district, String city, String password, String retype_password, String p1, String p2,
             String p3, boolean isSubscribed) {
@@ -64,7 +91,7 @@ public class iNewsUserDetails {
 
 
     public String getUsername() {
-        return username;
+        return email;
     }
 
 
@@ -200,6 +227,38 @@ public class iNewsUserDetails {
 
     public void setSubscribed(boolean isSubscribed) {
         this.isSubscribed = isSubscribed;
+    }
+
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'isAccountNonExpired'");
+    }
+
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'isAccountNonLocked'");
+    }
+
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'isCredentialsNonExpired'");
+    }
+
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+        // TODO Auto-generated method stub
+        // throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
     }
     
 
