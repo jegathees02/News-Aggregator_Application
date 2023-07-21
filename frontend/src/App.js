@@ -37,16 +37,16 @@ function App() {
         <Route path = "/logo" Component={Logo} />
         <Route path = "/login" Component={Login} />
         <Route path='/signup' Component={signup} />
-        <ProtectedRoute
+        {/* <ProtectedRoute
           path = '/home' 
           Component = {HomePage}
           isAuthenticated = {isAuthenticated}
-          />
+          /> */}
           {/* <ProtectedRoute */}
         <Route path = '/navbar' Component={Navbar} />
         <Route path = '/sidebar' Component={sidebar} />
         <Route path = '/footer' Component={Footer} />
-        {/* <Route path = '/home' Component={HomePage} /> */}
+        <Route path = '/home' Component={HomePage} />
         <Route path = '/trending' Component={TrendingPage} />
         <Route path = '/politics' Component={PoliticsPage} />
         <Route path = '/entertainment' Component={EntertainmentPage} />
@@ -66,9 +66,9 @@ function App() {
 }
 
 
-function ProtectedRoute({ element: Component, isAuthenticated, ...rest }) {
-  return (
-    isAuthenticated ? <Route {...rest} element={<Component {...rest} />} /> : <Link to="/login" />
-  );
-}
+// function ProtectedRoute({ element: Component, isAuthenticated, ...rest }) {
+//   return (
+//     isAuthenticated ? <Route {...rest} element={<Component {...rest} />} /> : <Link to="/login" />
+//   );
+// }
 export default App;

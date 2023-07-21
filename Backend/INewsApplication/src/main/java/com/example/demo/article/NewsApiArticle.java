@@ -3,6 +3,9 @@ package com.example.demo.article;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+
+// The purpose of using the NewsApiArticle class is to provide a structured representation of the article data received from the News API. It acts as a data transfer object (DTO) to hold the information retrieved from the API response and allows easy mapping of the data to the ArticleDetails entity.
 public class NewsApiArticle {
     @JsonProperty("author")
     private String author;

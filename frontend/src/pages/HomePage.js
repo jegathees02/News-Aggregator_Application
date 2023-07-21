@@ -16,7 +16,7 @@ function HomePage() {
 
   useEffect(() => {
     axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-06-21&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c')
-      .then(response => setArticles(response.data.articles.slice(0, 4)))
+      .then(response => setArticles(response.data.articles.slice(0, 10)))
       .catch(error => console.log(error));
   }, []);
 
@@ -313,12 +313,13 @@ function HomePage() {
             <h2 className="text-3xl text-red-500">Hello {username}</h2>
           </div>
           <div className="home-page-api-content-area text-slate-100 text-2xl">
-            <div className="flex flex-row">
+            <div className="flex flex-row flex-wrap">
               {articles.map((article, index) => (
                 <div className="home-news1-grid" key={index}>
                   <div className="homepage-news-grid m-3">
                     <div className="md:2 home-page-actual-grid text-xl text-slate-100">
-                      <ul className="flex flex-col">
+                      <ul className="flex flex-col flex-wrap ">
+                        <a href={article.url} >
                         <div className="home-page-news-grid">
                           <img className="home-page-news-grid-img" src={article.urlToImage} alt="img" />
                           <div className="reaction-icons">
@@ -334,6 +335,7 @@ function HomePage() {
                             />
                           </div>
                         </div>
+                        </a>
                         <div className="home-page-news-desc text-base text-center">
                           <h3 className="t">{article.title}</h3>
                         </div>

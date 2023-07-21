@@ -33,7 +33,7 @@ function Login() {
     // If the inputs are valid, proceed with the login API call
     if (isValid) {
       axios
-        .post("http://localhost:8080/api/v1/auth/register", {
+        .post("http://localhost:8080/api/v1/auth/authenticate", {
           email,
           password,
         })
@@ -41,6 +41,7 @@ function Login() {
           console.log("Login successful:", response);
           const token = response.data.token;
           localStorage.setItem("token", token);
+          localStorage.setItem()
           dispatch({ type: "SET_USERNAME", payload: email });
 
           // Navigate to the home page after successful login
@@ -83,6 +84,7 @@ function Login() {
   return (
     <div className="login-all">
       {/* ... Your login form JSX ... */}
+      
       <form className="form-group" onSubmit={handleSubmit}>
         <label className="text-slate-100 text-3xl login-input">
           Username:

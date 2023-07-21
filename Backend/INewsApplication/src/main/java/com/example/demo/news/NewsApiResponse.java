@@ -1,37 +1,30 @@
 package com.example.demo.news;
 
+// import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+// @JsonIgnoreProperties(ignoreUnknown = true)
 public class NewsApiResponse {
-    private String status;
-    private int totalResults;
-    private List<NewsArticle> articles;
 
-    // Add getters and setters for all the fields
+    @JsonProperty("articles")
+    private List<NewsApiArticleDTO> articles;
 
-    public String getStatus() {
-        return status;
+    
+
+    public NewsApiResponse(List<NewsApiArticleDTO> articles) {
+        this.articles = articles;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public NewsApiResponse() {
     }
 
-    public int getTotalResults() {
-        return totalResults;
-    }
-
-    public void setTotalResults(int totalResults) {
-        this.totalResults = totalResults;
-    }
-
-    public List<NewsArticle> getArticles() {
+    public List<NewsApiArticleDTO> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<NewsArticle> articles) {
+    public void setArticles(List<NewsApiArticleDTO> articles) {
         this.articles = articles;
     }
 }
-

@@ -1,48 +1,38 @@
-
 package com.example.demo.article;
 
-import java.util.List;
+import com.example.demo.entity.ArticleDetails;
+import com.example.demo.repository.ArticleDetailRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entity.ArticleDetails;
-import com.example.demo.repository.ArticleDetailRepository;
+import java.util.List;
 
 @RestController
 public class ArticleController {
+    private final NewsArticleService newsArticleService;
+
 	@Autowired
 	ArticleDetailRepository repo;
-	
-	@Autowired
-	NewsApiService service;
-	
-	@GetMapping("/api/v1/fetch")
-	public List<ArticleDetails> get() {
-		return service.fetchNewsArticles();
-	}
-	
-	@GetMapping("/api/v1/data-update")
-	public String DataUpdate() {
-		return service.saveNewsArticlesToDatabase();
-	}
-	
-	
-//	@GetMapping("/api/get")
-//	public List<ArticleDetails> gets) {
-//		return service.getAPIData();
-//	}
-//	
-	@GetMapping("/api/v1/article/get")
-	public List<ArticleDetails> getAlls() {
-//		return repo.findAll();
+
+    @Autowired
+    public ArticleController(NewsArticleService newsArticleService) {
+        this.newsArticleService = newsArticleService;
+    }
+
+	@GetMapping("/api/v1/article")
+	public List<ArticleDetails> getAllData() {
 		return repo.findAll();
 	}
-	
-//	@PostMapping("/article/post")
-//	public ArticleDetails create(@RequestBody ArticleDetails article) {
-//		return repo.save(article);
-//	}
 
+    @GetMapping("/api/v1/fetch")
+    public List<ArticleDetails> fetchAndStoreNewsArticles() {
+        return newsArticleService.fetchNewsArticles();
+    }
+
+    @GetMapping("/api/v1/article/get")
+    public String getAllNewsArticles() {
+        return newsArticleService.saveNewsArticlesToDatabase();
+    }
 }

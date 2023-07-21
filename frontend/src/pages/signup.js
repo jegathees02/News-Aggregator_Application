@@ -3,6 +3,7 @@ import Logo from "../components/logo";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ".././assets/css/signup.css";
+import axios from "axios";
 
 
 
@@ -64,141 +65,169 @@ function Signup() {
         setPreference3Error('');
         
     }
+    const dataLoader = {
+        name : name,
+        email: email,
+        age: age,
+        mobile: mobile,
+        state : states,
+        district : district,
+        city : city,
+        password : password,
+        p1 : preference1,
+        p2 : preference2,
+        p3 : preference3
+
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         validate();
-    }
-    const validate = () => {
-        let isValid = true;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const strWithNum = /\d/;
-        // const isValidStr = strWithNum.test
-        // let isValidStr;
-        // let isValidEmail;
-        // const isValidEmail = emailRegex.test(email);
-        if(name === "") {
-            setNameError("*Name is required");
-            isValid = false;
-        }
-        else if((strWithNum.test(name))) {
-            setNameError("*Name cannot contain numbers");
-        }
-        else{
-            setNameError('');
-        }
-        if(email === "") {
-            setEmailError("*Email is required");
-            isValid = false;
-        }
-        else if(!(emailRegex.test(email))) {
-            setEmailError("Invalid Email");
-            isValid = false;
-        }
-        else{
-            setEmailError('');
-        }
-        if(mobile === 0 || mobile < 6000000000 || mobile > 9999999999) {
-            setMobileError("*Invalid Mobile Number");
-            isValid = false;
-        }
-        else{
-            setMobileError('');
-        }
-        if(age === 0) {
-            setAgeError("*Age cannot be zero");
-            isValid = false;
-        }
-        else if(age === '' ){
-            setAgeError("*Age is required");
-        }
-        else if(age < 0 || age > 100) {
-            setAgeError("*Age is invalid");
-            isValid = false;
-        }
-        else{
-            setAgeError('');
-        }
-        if(states === "") {
-            setStatesError("*State is required");
-            isValid = false;
-        }
-        else if(!(strWithNum.test(states))) {
-            setStatesError("*State cannot contain numbers");
-        }
-        else{
-            setStatesError('');
-        }
-        if(district === "") {
-            setDistrictError("*District is required");
-            isValid = false;
-        }
-        else if(!(strWithNum.test(district))) {
-            setDistrictError("*District cannot contain numbers");
-        }
-        else{
-            setDistrictError('');
-        }
-        if(city === "") {
-            setCityError("*City is required");
-            isValid = false;
-        }
-        else if(!(strWithNum.test(city))) {
-            setCityError("*City cannot contain numbers");
-        }
-        else{
-            setCityError('');
-        }
-        if(preference1 === "") {
-            setPreference1Error("*Preference is required");
-            isValid = false;
-        }
-        else if(!(strWithNum.test(preference1))) {
-            setPreference1Error("*Preference cannot contain numbers");
-        }
-        else{
-            setPreference1Error('');
-        }
-        if((strWithNum.test(preference2))) {
-            setPreference2Error("*Preference cannot contain numbers");
-        }
-        else{
-            setPreference2Error('');
-        }
-        if((strWithNum.test(preference2))) {
-            setPreference3Error("*Preference cannot contain numbers");
-        }
-        else{
-            setPreference3Error('');
-        }
-        if(password === "") {
-            setPasswordError("*Password is required");
-            isValid = false;
-        }
-        else if(password.length < 8) {
-            setPasswordError("*Password length must be greater than 8");
-            isValid = false;
-        }
-        else{
-            setPasswordError('');
-        }
-        if(retype_password === "") {
-            setRetype_passwordError("*Re-type password");
-            isValid = false;
-        }
-        else if(password !== retype_password) {
-            setRetype_passwordError("*Password doesn't match");
-        }
-        else{
-            setRetype_passwordError('');
-        }
-
         if(isValid) {
-            // alert("signup-success");
-            navigate('/login');
+            axios.post("http://localhost:8080/api/v1/auth/register",
+            dataLoader)
+            .then((response) => {
+                console.log(response.data);
+                console.log("response section");
+                navigate("/login");
+            })
+            .catch((error) => {
+                console.error("Error :",error);
+                
+            });
+            
+    
+            
         }
-
     }
+    let isValid = true;
+    const validate = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const onlyStr = /^[a-zA-Z]+$/;
+        const isValidMobile = /^\d{10}$/;
+      
+        let isValid = true;
+      
+        if (name === "") {
+          setNameError("*Name is required");
+          isValid = false;
+        } else if (!onlyStr.test(name)) {
+          setNameError("*Name cannot contain numbers");
+          isValid = false;
+        } else {
+          setNameError("");
+        }
+      
+        if (email === "") {
+          setEmailError("*Email is required");
+          isValid = false;
+        } else if (!emailRegex.test(email)) {
+          setEmailError("Invalid Email");
+          isValid = false;
+        } else {
+          setEmailError("");
+        }
+      
+        if (!isValidMobile.test(mobile)) {
+          setMobileError("*Invalid Mobile Number");
+          isValid = false;
+        } else {
+          setMobileError("");
+        }
+      
+        if (age === 0) {
+          setAgeError("*Age cannot be zero");
+          isValid = false;
+        } else if (age === "") {
+          setAgeError("*Age is required");
+          isValid = false;
+        } else if (age < 0 || age > 100) {
+          setAgeError("*Age is invalid");
+          isValid = false;
+        } else {
+          setAgeError("");
+        }
+      
+        if (states === "") {
+          setStatesError("*State is required");
+          isValid = false;
+        } else if (!onlyStr.test(states)) {
+          setStatesError("*State cannot contain numbers");
+          isValid = false;
+        } else {
+          setStatesError("");
+        }
+      
+        if (district === "") {
+          setDistrictError("*District is required");
+          isValid = false;
+        } else if (!onlyStr.test(district)) {
+          setDistrictError("*District cannot contain numbers");
+          isValid = false;
+        } else {
+          setDistrictError("");
+        }
+      
+        if (city === "") {
+          setCityError("*City is required");
+          isValid = false;
+        } else if (!onlyStr.test(city)) {
+          setCityError("*City cannot contain numbers");
+          isValid = false;
+        } else {
+          setCityError("");
+        }
+      
+        if (preference1 === "") {
+          setPreference1Error("*Preference is required");
+          isValid = false;
+        } else if (!onlyStr.test(preference1)) {
+          setPreference1Error("*Preference cannot contain numbers");
+          isValid = false;
+        } else {
+          setPreference1Error("");
+        }
+      
+        if (!onlyStr.test(preference2)) {
+          setPreference2Error("*Preference cannot contain numbers");
+          isValid = false;
+        } else {
+          setPreference2Error("");
+        }
+      
+        if (!onlyStr.test(preference3)) {
+          setPreference3Error("*Preference cannot contain numbers");
+          isValid = false;
+        } else {
+          setPreference3Error("");
+        }
+      
+        if (password === "") {
+          setPasswordError("*Password is required");
+          isValid = false;
+        } else if (password.length < 8) {
+          setPasswordError("*Password length must be greater than 8");
+          isValid = false;
+        } else {
+          setPasswordError("");
+        }
+      
+        if (retype_password === "") {
+          setRetype_passwordError("*Re-type password");
+          isValid = false;
+        } else if (password !== retype_password) {
+          setRetype_passwordError("*Password doesn't match");
+          isValid = false;
+        } else {
+          setRetype_passwordError("");
+        }
+      
+        // return isValid; // Return the overall validity status
+      };
+      
+    
+
+    
 
 
     return(

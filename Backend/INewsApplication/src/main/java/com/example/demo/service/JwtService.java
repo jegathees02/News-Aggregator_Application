@@ -47,7 +47,7 @@ public class JwtService {
                 .setSubject(userDetails.getUsername()) // Subject should be username or email
                 .setIssuedAt(new Date(System.currentTimeMillis())) // When the claim is created to calculate whether the
                                                                    // token is vaild or expired
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24)) // Setting expiration data -> 24
+                .setExpiration(new Date(System.currentTimeMillis() + 10000 * 60 * 24)) // Setting expiration data -> 24
                                                                                       // hours plus 1000 milliseconds
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256).compact();
     }

@@ -5,32 +5,39 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// import com.example.demo.entity.NewsDetails;
-// import com.example.demo.entity;
-import com.example.demo.repository.NewsDetailRepository;
-
 @RestController
+@RequestMapping("/api/v1/news")
 public class NewsController {
-	@Autowired
-	NewsDetailRepository repo;
+    private final NewsDetailService newsDetailService;
+
     @Autowired
-    NewsService service;
-	
-	@GetMapping("/news/get")
-	public List<NewsMain> getAll() {
-		return repo.findAll();
-	}
-    @GetMapping("/news/fetch")
-    public String fetchNews() {
-        return service.saveNews(null);
+    public NewsController(NewsDetailService newsDetailService) {
+        this.newsDetailService = newsDetailService;
     }
-	
-	@PostMapping("/news/post")
-	public NewsMain create(@RequestBody NewsMain news) {
-		return repo.save(news);
-	}
+
+    @Autowired
+    NewsDetailRepository repo;
+
+    @GetMapping("/getNews")
+    public List<NewsDetails> getAll() {
+        return repo.findAll();
+    }
+
+    @GetMapping("/save")
+    public String saveNews() {
+        newsDetailService.saveNewsArticlesToDatabase();
+        return "Data saved";
+    }
+
+    @GetMapping("/fetch")
+    public String fetchAndStoreNews() {
+        newsDetailService.saveNewsArticlesToDatabase();
+        return "Data fetched and stored in the database.";
+    }
+
+    // Add other API endpoints as needed...
 
 }

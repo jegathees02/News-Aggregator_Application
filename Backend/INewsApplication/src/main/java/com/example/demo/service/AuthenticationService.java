@@ -28,8 +28,16 @@ public class AuthenticationService {
                 .builder()
                 .name(request.getName())
                 .email(request.getEmail())
+                .age(request.getAge())
+                .mobile(request.getMobile())
+                .state(request.getState())
+                .district(request.getDistrict())
+                .city(request.getCity())
+                .p1(request.getP1())
+                .p2(request.getP2())
+                .p3(request.getP3())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                // .role(Role.USER)
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
