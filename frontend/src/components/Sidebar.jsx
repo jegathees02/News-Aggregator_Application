@@ -334,8 +334,15 @@
 import React from "react";
 // import "./sidebar.css";
 import ".././assets/css/sidebar.css";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <div className="sidebar text-xl text-slate-100 bg-slate-950">
       <ul className="sidebar-menu">
@@ -355,13 +362,13 @@ function Sidebar() {
           <a className="sidebar-menu-li-a" href="/subscription">SUBSCRIPTION</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a" href="/contact">CONTACT</a>
+          <a className="sidebar-menu-li-a" href="/feedback">FEEDBACK</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="/account">ACCOUNT</a>
         </li>
         <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a" href="/">LOGOUT</a>
+          <a className="sidebar-menu-li-a cursor-pointer" onClick={handleLogout}>LOGOUT</a>
         </li>
       </ul>
     </div>

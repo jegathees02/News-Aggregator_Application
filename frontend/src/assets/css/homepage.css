@@ -58,3 +58,30 @@ background: linear-gradient(90deg, rgba(0,0,5,1) 0%, rgba(0,0,11,1) 46%, rgba(38
   }
 }
 
+.home-page-bookmark-icon{
+  /* margin: 4%; */
+  /* margin-right: 50%;
+  align-items: center;
+  justify-items: right;
+  text-align: right; */
+  margin-right: 6%;
+  margin-bottom: 4%;
+  /* bottom: 14px; */
+  
+}
+.home-page-like-icon{
+  /* margin-left: 30%; */
+  margin-left: 6%;
+  /* margin: 4%; */
+}
+
+.homepage-news-grid-main{
+  border: 1px solid gray;
+  border-radius: 12px;
+}
+
+.reaction-icons-main{
+  border: 1px solid wheat;
+  position: fixed;
+  bottom: 0%;
+}

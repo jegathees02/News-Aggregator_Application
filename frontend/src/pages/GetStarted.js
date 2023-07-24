@@ -3,12 +3,13 @@ import Logo from "../components/logo";
 import ".././assets/css/getstarted.css";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { Typewriter } from 'react-simple-typewriter'
 
 function GetStarted() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-06-21&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c')
+    axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-07-21&sortBy=publishedAt&apiKey=b97401fa288b40d4aaa54e0dfa8c637c')
       .then(response => setArticles(response.data.articles.slice(0, 12)))
       .catch(error => console.log(error));
   }, []);
@@ -20,16 +21,19 @@ function GetStarted() {
           <Logo />
         </div>
         <div className="get-start-content-main row mt-4">
-          <div className="get-start-left-side text-slate-100 text-2xl">
+          <div className="get-start-left-side text-slate-100 text-xl">
             <div className="get-start-left-side-scroll">
               {articles.map(article => (
                 <div className="get-start-api-fetch-main" key={article.title}>
-                  <img className="get-start-api-fetch-img" src={article.urlToImage} alt="img" />
+                  <img className="get-start-api-fetch-img" src={article.urlToImage} alt="img" 
+                  onError={(e) => {
+                    e.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjzn24h_6dPbzM0ztC5m6NasKxH3pWtSMUCA&usqp=CAU";
+                  }} />
                   <h2 className="get-start-api-fetch-title">{article.title}</h2>
                   {/* <p>{article.description}</p> */}
                   <button className="get-start-api-fetch-button-two ml-6">
-                    <span className="get-start-api-fetch-button-two-span">
-                      <a href={article.url}>Read more</a>
+                    <span className="get-start-api-fetch-button-two-span text-xl">
+                      <a href={article.url}>Read more..</a>
                     </span>
                   </button>
                 </div>
@@ -41,7 +45,23 @@ function GetStarted() {
               <div className="get-start-right-img">
                 <img className="rounded-xl" src="https://images.pexels.com/photos/1809342/pexels-photo-1809342.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="img" />
               </div>
-              <h3 className="text-slate-100 text-2xl gs-tr">Get to know the news early<br /> as possible</h3>
+              {/* <h3 className="text-slate-100 text-2xl gs-tr">Get to know the news early<br /> as possible</h3> */}
+              <p
+                  style={{
+                    fontFamily: "'Gilda Display', serif",
+                    fontSize: "60px",
+                    marginTop: "40px",
+                  }}
+                >
+                  <Typewriter
+                    options={{
+                      strings: ["Get the news in a simple way"],
+                      autoStart: true,
+                      loop: true,
+                      pauseFor: 5000,
+                    }}
+                  />
+                </p>
               <div className="get-start-button mt-3 mb-3">
                 <div><button className="get-start-nineteen">
                   <span className="get-start-nineteen-span">

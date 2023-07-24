@@ -3,13 +3,19 @@ package com.example.demo.news;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// import lombok.RequiredArgsConstructor;
+
 @RestController
-@RequestMapping("/api/v1/news")
+@RequestMapping("/api/v1/auth")
+@CrossOrigin("*")
+// @CrossOrigin(origins = "http://localhost:8080")
+// @RequiredArgsConstructor
 public class NewsController {
     private final NewsDetailService newsDetailService;
 

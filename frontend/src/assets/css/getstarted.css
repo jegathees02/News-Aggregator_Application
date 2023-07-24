@@ -89,7 +89,7 @@
   margin-left: 45%;
   width: 200px;
   padding: 20px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   border: none;
@@ -136,7 +136,7 @@
   text-align: center;
   cursor: pointer;
   display: block;
-  font-size: 20px;
+  font-size: 17px;
   margin:auto;
   /* margin: 0 0 0 100px; */
   border-radius: 4px;
@@ -156,6 +156,7 @@
 
 .get-start-api-fetch-button-two-span:after {
   content: '»';
+  /* content: '>>'; */
   position: absolute;
   opacity: 0;
   top: 0;

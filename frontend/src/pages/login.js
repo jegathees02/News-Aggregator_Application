@@ -29,19 +29,20 @@ function Login() {
 
     // Call the validate function to check if the inputs are valid
     validate();
+    const dataForm = {
+      email : email,
+      password : password
+    };
 
     // If the inputs are valid, proceed with the login API call
     if (isValid) {
       axios
-        .post("http://localhost:8080/api/v1/auth/authenticate", {
-          email,
-          password,
-        })
+        .post("http://localhost:8080/api/v1/auth/authenticate", dataForm)
         .then((response) => {
           console.log("Login successful:", response);
           const token = response.data.token;
           localStorage.setItem("token", token);
-          localStorage.setItem()
+          // localStorage.setItem()
           dispatch({ type: "SET_USERNAME", payload: email });
 
           // Navigate to the home page after successful login
@@ -84,7 +85,22 @@ function Login() {
   return (
     <div className="login-all">
       {/* ... Your login form JSX ... */}
-      
+      <div className="login-main container ">
+            <div className="login-logo-section row" >
+                <Logo/>
+            </div>
+            <div className="login-content row ">
+                 <div className="login-img col-md-12 col-sm-12 col-lg-12"  >
+                    <div>
+                        <img className="login-img-main" src="https://c1.wallpaperflare.com/preview/415/175/739/magnifier-newspaper-history-glass.jpg" alt="img" />
+                    </div>
+                </div>
+                    <div className="login-inputs" >
+                        <div className="login-input-main" >
+                            <div className="login-text">
+                                <h2 className="text-slate-50 text-4xl font-bold  text-center"><span className="text-red-500">i</span>News<span className="text-red-500">.</span> &nbsp; Login</h2>
+                            </div>
+                            <div className="login-input-form">
       <form className="form-group" onSubmit={handleSubmit}>
         <label className="text-slate-100 text-3xl login-input">
           Username:
@@ -138,6 +154,12 @@ function Login() {
           </button>
         </label>
       </form>
+      </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
     </div>
   );
 }

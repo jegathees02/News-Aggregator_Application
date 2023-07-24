@@ -20,9 +20,12 @@ import ArticlePage from './pages/ArticlePage';
 import BreakingNewsPage from './pages/BreakingNewsPage';
 import PreferencesPage from './pages/PreferencesPage';
 import AccountPage from './pages/AccountPage';
+import FeedbackPage from './pages/FeedbackPage';
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import sidebar from './components/Sidebar';
 import Footer from './components/Footer';
+import Logout from './pages/Logout';
+
 
 
 function App() {
@@ -59,6 +62,8 @@ function App() {
         <Route path = '/preference' Component={PreferencesPage} />
         <Route path = '/account' Component={AccountPage} />
         <Route path = '/saved' Component={ArticlePage} />
+        <Route path = '/feedback' Component={FeedbackPage} />
+        <Route path = '/logout' Component={Logout} />
       </Routes>
       </Router>
     </div>

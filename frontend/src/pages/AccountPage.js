@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Account from "../components/Account";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 
@@ -16,7 +17,8 @@ function AccountPage() {
             </div>
             </div>
             <div className="home-page-main-content w-4/5 float-right bg-gradient-to-r from-slate-600 to-slate-900">
-              <h2 className="text-2xl text-bold text-slate-100">Account Page</h2>
+              {/* <h2 className="text-2xl text-bold text-slate-100">Account Page</h2> */}
+              <Account />
             </div>
             <div className="home-page-footer">
         <div className="home-footer w-4/5 float-right">
