@@ -19,3 +19,6 @@ npm install @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icon
 npm install @fortawesome/react-fontawesome
 
 npm i react-simple-typewriter
+npm install react-loader-spinner --save
+
+npm install js-cookie

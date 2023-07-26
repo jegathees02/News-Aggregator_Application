@@ -18,8 +18,8 @@ import com.example.demo.service.FeedbackService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/feed")
 @CrossOrigin("*")
+@RequestMapping("/api/v1/feed")
 @RequiredArgsConstructor
 public class FeedbackController {
 	private final FeedbackService feedbackService;

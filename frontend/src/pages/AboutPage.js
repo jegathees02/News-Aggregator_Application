@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import About from "../components/about";
 import Footer from "../components/Footer";
 
+
 function AboutPage() {
+  
     return(
         <>
         <div className="homepage-main">

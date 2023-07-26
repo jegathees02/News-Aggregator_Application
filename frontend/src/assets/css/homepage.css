@@ -23,7 +23,7 @@ background: linear-gradient(90deg, rgba(0,0,5,1) 0%, rgba(0,0,11,1) 46%, rgba(38
   /* object-fit: cover;
   overflow: hidden; */
   /* border: 4px solid red; */
-  display: block;
+  /* display: block; */
   margin: auto;
   height: 15vh;
   /* height: 100vh; */
@@ -82,6 +82,7 @@ background: linear-gradient(90deg, rgba(0,0,5,1) 0%, rgba(0,0,11,1) 46%, rgba(38
 
 .reaction-icons-main{
   border: 1px solid wheat;
-  position: fixed;
-  bottom: 0%;
+  position: absolute;
+
+  bottom: 0px;
 }

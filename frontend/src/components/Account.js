@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import Logo from "../components/logo";
 import "../assets/css/account.css";
 import axios from "axios";
+import { Dna } from "react-loader-spinner";
 
 function Account() {
+
+  
+
   // State variables for user data
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -72,6 +76,38 @@ function Account() {
     // Fetch user data when the component mounts
     fetchUserData();
   }, []);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    }
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "80vh",
+        }}
+      >
+        <Dna
+          visible={true}
+          height={80}
+          width={80}
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
+  }
 
   return (
     <>

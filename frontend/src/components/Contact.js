@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import "../assets/css/contact.css";
+import { Dna } from "react-loader-spinner";
+
+
 
 function Contact() {
   const [name, setName] = useState("");
@@ -18,6 +21,37 @@ function Contact() {
     setEmail("");
     setDescription("");
   };
+
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "80vh",
+        }}
+      >
+        <Dna
+          visible={true}
+          height={80}
+          width={80}
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="contact-main">

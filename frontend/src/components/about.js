@@ -1,9 +1,43 @@
 import React from "react";
+import { useState,useEffect } from "react";
 // import "./About.css"; // Import the CSS file for styling
 import ".././assets/css/about.css";
+import { Dna } from "react-loader-spinner";
 
 
 function About() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "80vh",
+        }}
+      >
+        <Dna
+          visible={true}
+          height={80}
+          width={80}
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
+  }
   return (
     <div className="about-main">
       <div className="about-content">

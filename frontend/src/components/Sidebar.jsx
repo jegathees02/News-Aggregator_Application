@@ -352,9 +352,9 @@ function Sidebar() {
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="/saved">SAVED ARTICLES</a>
         </li>
-        {/* <li className="sidebar-menu-li text-slate-100 ">
-          <a className="sidebar-menu-li-a" href="#">SETTINGS</a>
-        </li> */}
+        <li className="sidebar-menu-li text-slate-100 ">
+          <a className="sidebar-menu-li-a" href="/search">SEARCH</a>
+        </li>
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="/preference">PREFERENCES</a>
         </li>

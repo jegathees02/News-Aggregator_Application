@@ -25,7 +25,7 @@ public class NewsSaved {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private long id;
-    private long user_id;
+    private String email;
     private String author;
 
     @Column(length = 1000)
@@ -45,8 +45,10 @@ public class NewsSaved {
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    private long likes = 0;
+    private boolean islikes = false;
     private boolean isSaved = false;
+    public void setIsSaved(boolean b) {
+    }
 
     
 }

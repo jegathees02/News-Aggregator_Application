@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../assets/css/feedback.css";
 import axios from "axios";
+import { Dna } from "react-loader-spinner";
 
 function Feedback() {
   const [feedback, setFeedback] = useState("");
@@ -32,7 +33,7 @@ function Feedback() {
     validate();
     if (isValid) {
       axios
-        .post("http://localhost:8082/api/v1/feed/addFeedback", {
+        .post("http://localhost:8080/api/v1/feedback/addUserFeedback", {
           email: email,
           feedback: feedback,
         })
@@ -68,6 +69,39 @@ function Feedback() {
       setEmailError("");
     }
   };
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "80vh",
+        }}
+      >
+        <Dna
+          visible={true}
+          height={80}
+          width={80}
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
+  }
+
 
   return (
     <>

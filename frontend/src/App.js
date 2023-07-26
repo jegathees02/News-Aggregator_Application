@@ -25,8 +25,10 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Logout from './pages/Logout';
-
-
+import SavedPage from './pages/SavedPage';
+// import SearchPage from './pages/SearchPage';
+import SearchNewsPage from './components/SearchNewsPage';
+import SearchPage from './pages/SearchNewsPage';
 
 function App() {
   // const navigate = useNavigate();
@@ -61,9 +63,11 @@ function App() {
         <Route path = '/breaking' Component={BreakingNewsPage} />
         <Route path = '/preference' Component={PreferencesPage} />
         <Route path = '/account' Component={AccountPage} />
-        <Route path = '/saved' Component={ArticlePage} />
+        <Route path = '/saved' Component={SavedPage} />
         <Route path = '/feedback' Component={FeedbackPage} />
         <Route path = '/logout' Component={Logout} />
+        <Route path = '/search' Component={SearchPage} />
+        
       </Routes>
       </Router>
     </div>

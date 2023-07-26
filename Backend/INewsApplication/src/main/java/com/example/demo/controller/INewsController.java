@@ -1,16 +1,14 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.repository.UserRepository;
+
 
 // import jakarta.ws.rs.Path;
 
@@ -33,6 +31,8 @@ public class INewsController {
     public List<iNewsUserDetails> findUserByun(@PathVariable String username) {
         return repo.findByUsername(username);
     }
+
+    //      
 
     // @GetMapping("/getById/{id}")
     // public List<iNewsUserDetails> findByUser_id(@PathVariable long id) {

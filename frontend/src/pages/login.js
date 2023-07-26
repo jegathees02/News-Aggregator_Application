@@ -42,6 +42,8 @@ function Login() {
           console.log("Login successful:", response);
           const token = response.data.token;
           localStorage.setItem("token", token);
+          localStorage.setItem("email",email);
+          localStorage.setItem("newsapi","https://api.worldnewsapi.com/search-news?api-key=35ec723270d040bfb6e059733a3eaf40&");
           // localStorage.setItem()
           dispatch({ type: "SET_USERNAME", payload: email });
 

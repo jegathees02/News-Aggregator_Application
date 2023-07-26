@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -12,6 +13,7 @@ import { useSelector } from "react-redux";
 function HomePage() {
   const [articleStates, setArticleStates] = useState([]);
   const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
 
   const head = {
     headers: {
@@ -30,17 +32,64 @@ function HomePage() {
         // Initialize article states based on the fetched articles
         const initialStates = response.data.map(() => ({
           bookmarked: false,
-          liked: false,
+          liked: 0,
         }));
         setArticleStates(initialStates);
       })
-      .catch(error => console.log("Error fetching articles:", error));
+      .catch(error => {
+        console.log("Error fetching articles:", error);
+        navigate("/login");
+      });
+      
+      
   }, []);
 
-  const handleBookmarkClick = (index) => {
+  const handleBookmarkClick = async (index) => {
     const updatedStates = [...articleStates];
-    updatedStates[index].bookmarked = !updatedStates[index].bookmarked;
-    setArticleStates(updatedStates);
+  updatedStates[index].bookmarked = !updatedStates[index].bookmarked;
+  setArticleStates(updatedStates);
+
+  const updatedArticles = [...articles];
+  updatedArticles[index].isSaved = !updatedArticles[index].isSaved; // Toggle the isSaved value
+  setArticles(updatedArticles);
+
+  const articleToSave = {
+    author: articles[index].author,
+    title: articles[index].title,
+    description: articles[index].description,
+    url: articles[index].url,
+    img_url: articles[index].img_url,
+    p_date: articles[index].publishedAt,
+    content: articles[index].content,
+    isSaved: updatedArticles[index].isSaved, // Use the updated value of isSaved
+  };
+
+
+      try {
+    if (updatedStates[index].bookmarked) {
+      // Add the bookmark to the database
+      await axios.post(
+        `http://localhost:8080/api/v1/auth/news/saved/save?email=${localStorage.getItem("email")}`,
+        articleToSave,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Article bookmarked successfully!");
+    }  else {
+        // Remove the bookmark from the database
+        await axios.delete(`http://localhost:8080/api/v1/auth/news/saved/save?email=${localStorage.getItem("email")}`, {
+          articleId: articleToSave.id, // Assuming your article object has an 'id' field as a unique identifier
+          // Replace with the actual email of the user from your authentication system
+        });
+        console.log("Bookmark removed successfully!");
+      }
+    } catch (error) {
+      console.log("Error handling bookmark:", error);
+    }
   };
 
   const handleLikeClick = (index) => {
@@ -69,7 +118,7 @@ function HomePage() {
           <div className="home-page-api-content-area text-slate-100 text-xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {articles.map((article, index) => (
-                <div key={index} className="homepage-news-grid">
+                <div key={index} className="homepage-news-grid-main">
                   <div className="homepage-news-grid">
                     <a href={article.url} target="_blank" rel="noopener noreferrer">
                       <img className="home-page-news-grid-img" src={article.img_url} alt="img"
@@ -88,6 +137,7 @@ function HomePage() {
                           className="heart-icon float-left home-page-like-icon"
                           onClick={() => handleLikeClick(index)}
                         />
+                        {/* <div>{article.source} </div> */}
                         <FontAwesomeIcon
                           icon={articleStates[index]?.bookmarked ? faBookmark : farBookmark}
                           className="bookmark-icon float-right home-page-bookmark-icon"

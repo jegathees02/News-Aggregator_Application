@@ -122,8 +122,10 @@ import React from "react";
 import Logo from "../components/logo";
 // import "./Navbar.css";
 import ".././assets/css/navbar.css";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <div className="w-full bg-slate-950" >
     <nav className="navbar text-slate-100">
@@ -159,7 +161,7 @@ function Navbar() {
           {/* Add more links as needed */}
         </ul>
         <div className="navbar-profile">
-          <img className="navbar-profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf0chI3bLTtIar9MM7tGc4JMDw7pKD1E7g-A&usqp=CAU" alt="Profile" />
+          <img  className="navbar-profile-img cursor-pointer" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf0chI3bLTtIar9MM7tGc4JMDw7pKD1E7g-A&usqp=CAU" alt="Profile" />
         </div>
       </div>
     </nav>

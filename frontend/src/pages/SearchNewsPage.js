@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import BreakingNews from "../components/BreakingNews";
+// import Article from "../components/Article";
+import SearchNewsPage from "../components/SearchNewsPage";
 import Footer from "../components/Footer";
 
 
-function BreakingNewsPage() {
+function SearchPage() {
   
     return(
         <>
@@ -19,7 +20,7 @@ function BreakingNewsPage() {
             </div>
             </div>
             <div className="home-page-main-content w-4/5 float-right bg-gradient-to-r from-slate-600 to-slate-900">
-              <BreakingNews />
+              <SearchNewsPage />
             </div>
             <div className="home-page-footer">
         <div className="home-footer w-4/5 float-right">
@@ -31,4 +32,4 @@ function BreakingNewsPage() {
     )
 }
 
-export default BreakingNewsPage;
+export default SearchPage;

@@ -13,21 +13,23 @@ import com.example.demo.entity.iNewsUserDetails;
 import com.example.demo.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
-
+import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserService {
 	private final UserRepository userRepository;
 	
 	private final RestTemplate restTemplate;
 
 	public void addUserFeedback(UserFeedbackRequest userRequest) {
-		var user = iNewsUserDetails.builder().name(userRequest.getName()).email(userRequest.getEmail()).build();
+		// var user = iNewsUserDetails.builder().name(userRequest.getName()).email(userRequest.getEmail()).build();
 		var feedback = FeedbackRequest.builder().email(userRequest.getEmail()).feedback(userRequest.getFeedback()).build();
-		userRepository.save(user);
+		// userRepository.save(user);
+		log.info("Data :" +feedback);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<FeedbackRequest> requestEntity = new HttpEntity<>(feedback, headers);
-		restTemplate.postForObject("http://FEEDBACK-SERVICE/api/v1/feed/addFeedback", requestEntity, Feedback.class);
+		restTemplate.postForObject("http://192.168.68.4:8082/api/v1/feed/addFeedback", requestEntity, Feedback.class);
 	}
 }
