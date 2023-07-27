@@ -102,7 +102,6 @@ function Feedback() {
     );
   }
 
-
   return (
     <>
       <div className="feedback-main container text-slate-100">
@@ -112,9 +111,9 @@ function Feedback() {
             <div className="feedback-list-main">
               <div className="feedback-list-grid">
                 {feedbck.map((feedback, index) => (
-                  <div className="feedback-list-implementation " key={index}>
-                    <p>Email: {feedback.email}</p>
-                    <p>Feedback: {feedback.feedback}</p>
+                  <div className="feedback-list-implementation  " key={index}>
+                    <p className="text-slate-950">Email: {feedback.email}</p>
+                    <p className="text-slate-950">Feedback: {feedback.feedback}</p>
                   </div>
                 ))}
               </div>

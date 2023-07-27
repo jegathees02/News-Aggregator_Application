@@ -46,23 +46,20 @@ function GetStarted() {
                 <img className="rounded-xl" src="https://images.pexels.com/photos/1809342/pexels-photo-1809342.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="img" />
               </div>
               {/* <h3 className="text-slate-100 text-2xl gs-tr">Get to know the news early<br /> as possible</h3> */}
-              <p
-                  style={{
-                    fontFamily: "'Gilda Display', serif",
-                    fontSize: "60px",
-                    marginTop: "40px",
-                  }}
-                >
-                  <Typewriter
-                    options={{
-                      strings: ["Get the news in a simple way"],
-                      autoStart: true,
-                      loop: true,
-                      pauseFor: 5000,
-                    }}
-                  />
-                </p>
-              <div className="get-start-button mt-3 mb-3">
+              <div className="type-writer">
+            <Typewriter
+ 
+                onInit={(typewriter) => {
+                    typewriter
+                        .typeString("INewsApplication")
+                        .pauseFor(1000)
+                        .deleteAll()
+                        .typeString("News For U....")
+                        .start();
+                }}
+            />
+        </div>
+              <div className="get-start-button mt-40 mb-3">
                 <div><button className="get-start-nineteen">
                   <span className="get-start-nineteen-span">
                     <Link to="/login">Get Started!</Link>

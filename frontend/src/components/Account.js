@@ -23,7 +23,7 @@ function Account() {
   // Function to fetch user data
   const fetchUserData = () => {
     // Mock implementation, replace with actual API endpoint
-    const userId = "your-user-id"; // Replace with the actual user ID or identifier
+    const userId = localStorage.getItem('email'); // Replace with the actual user ID or identifier
     axios.get(`http://localhost:8080/api/v1/users/${userId}`)
       .then(response => {
         const userData = response.data; // Replace this with the correct data structure from the API response
@@ -60,7 +60,7 @@ function Account() {
     };
 
     // Mock implementation, replace with actual API endpoint
-    const userId = "your-user-id"; // Replace with the actual user ID or identifier
+    const userId = localStorage.getItem('email'); // Replace with the actual user ID or identifier
     axios.put(`http://localhost:8080/api/v1/users/${userId}`, userData)
       .then(response => {
         console.log("User data updated successfully:", response.data);

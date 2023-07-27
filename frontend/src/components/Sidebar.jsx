@@ -364,9 +364,9 @@ function Sidebar() {
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="/feedback">FEEDBACK</a>
         </li>
-        <li className="sidebar-menu-li text-slate-100 ">
+        {/* <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a" href="/account">ACCOUNT</a>
-        </li>
+        </li> */}
         <li className="sidebar-menu-li text-slate-100 ">
           <a className="sidebar-menu-li-a cursor-pointer" onClick={handleLogout}>LOGOUT</a>
         </li>
